@@ -1,4 +1,24 @@
-<h1 class="text-3xl font-bold">
-  Hello world!
-</h1>
-<router-outlet />
+<!-- app.component.html -->
+<div class="min-h-screen flex bg-gray-900 text-purple-200">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 p-4 hidden md:block">
+    <h2 class="text-xl font-bold mb-6">Mi Dashboard</h2>
+    <nav class="flex flex-col gap-2">
+      <a routerLink="/dashboard" routerLinkActive="bg-purple-600 rounded-lg px-3 py-2">
+        Dashboard
+      </a>
+      <a routerLink="/forms" routerLinkActive="bg-purple-600 rounded-lg px-3 py-2">
+        Forms
+      </a>
+      <a routerLink="/cards" routerLinkActive="bg-purple-600 rounded-lg px-3 py-2">
+        Cards
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Content -->
+  <main class="flex-1 p-6">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+

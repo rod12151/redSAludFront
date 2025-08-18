@@ -1,0 +1,29 @@
+<!-- forms.component.html -->
+<div class="max-w-md mx-auto bg-gray-800 p-6 rounded-xl shadow">
+  <h2 class="text-xl font-bold mb-4">Formulario con Signals</h2>
+
+  <form class="flex flex-col gap-4" (submit)="save(); $event.preventDefault()">
+    <input 
+      type="text" 
+      placeholder="Nombre"
+      class="p-2 rounded bg-gray-900 border border-purple-600"
+      [value]="name()" 
+      (input)="name.set($any($event.target).value)" />
+
+    <input 
+      type="email" 
+      placeholder="Correo"
+      class="p-2 rounded bg-gray-900 border border-purple-600"
+      [value]="email()" 
+      (input)="email.set($any($event.target).value)" />
+
+    <button class="bg-purple-600 hover:bg-purple-700 rounded-lg p-2 font-semibold">
+      Guardar
+    </button>
+  </form>
+
+  <div class="mt-4">
+    <p><b>Nombre:</b> {{ name() }}</p>
+    <p><b>Email:</b> {{ email() }}</p>
+  </div>
+</div>
