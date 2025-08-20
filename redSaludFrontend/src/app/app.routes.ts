@@ -1,7 +1,8 @@
+import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    
     {
         path: 'dashboard',
         loadChildren: () => import('./features/dashboard/dashboard.routes')
@@ -17,6 +18,12 @@ export const routes: Routes = [
         loadChildren:()=> import('./features/forms/forms.routes')
             .then(m=>m.FORMS_ROUTES),
     },
+    {
+        path:'',
+        loadChildren:()=>import('./core/layout/public-layout/public-layout.routes')
+        .then(m=>m.PUBLIClAYOUT_RUTES),
+    },
+    
 
 
 
