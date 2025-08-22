@@ -5,7 +5,7 @@ import { PublicHeader } from "./core/components/header/public-header/public-head
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,PublicFooter,PublicHeader],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,2 +1,15 @@
-<router-outlet></router-outlet>
 
+<!-- Header fijo -->
+<header class="fixed top-0 left-0 w-full z-50">
+  <app-public-header></app-public-header>
+</header>
+
+<!-- Contenedor principal (espaciado para que no tape el header) -->
+<main class="pt-[80px] min-h-screen">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white mt-10 z-50">
+  <app-public-footer></app-public-footer>
+</footer>
