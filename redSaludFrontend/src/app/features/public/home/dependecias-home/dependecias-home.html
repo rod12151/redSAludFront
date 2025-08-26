@@ -1,23 +1,23 @@
-<section class="w-full py-16 px-6 md:px-12 lg:px-20 bg-white justify-items-center items-center content-center ">
+<section class="m-10  justify-items-center items-center content-center ">
         <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">DEPENDENCIAS DE LA RED DE SALUD HUAMANGA</h2>
         @if (dependencias) {
 
         @for (item of dependencias; track $index) {
         @if(isPar($index +1)){
-        <section class="w-full py-16 px-6 md:px-12 lg:px-20 bg-gray-50 flex flex-col md:flex-row items-center gap-12">
+        <section class="w-full p-5 rounded-tl-[70px] rounded-br-[40px] bg-gradient-to-r from-slate-200 from-0% flex flex-col md:flex-row items-center">
 
             <!-- Imagen -->
             <div class="md:w-1/2 flex justify-center">
                 <img [src]="item.image" alt="Director"
-                    class="rounded-tl-[70px] rounded-br-[40px] w-full max-w-lg h-auto object-cover shadow-[0px_0px_40px_0px_rgba(138,_43,_226,_0.4)]">
+                    class="rounded-tl-[30px] rounded-br-[30px] w-full max-w-lg h-auto object-cover">
             </div>
 
             <!-- Texto -->
             <div class="md:w-1/2 text-gray-700 space-y-4 text-justify">
                 <h2
-                    class="text-3xl font-bold mb-6 text-gray-900 border-l-4 border-purple-600 pl-4 text-center uppercase">
+                    class="text-xl font-bold mb-6 text-gray-900 border-l-4 border-purple-600 pl-4 text-center uppercase">
                     {{item.nombre}} </h2>
-                <p class="leading-relaxed text-lg italic border-l-4 border-gray-300 pl-4">{{item.descripcion}}</p>
+                <p class="leading-relaxed text-lg italic border-l-4 border-gray-300 pl-4 line-clamp-5">{{item.descripcion}}</p>
 
                 <div class="mt-6 text-center">
                     <p class="font-semibold text-purple-700">G.P. YOLANDA MANCILLA CASTRO</p>
@@ -28,20 +28,20 @@
 
         }
         @else {
-            <section class="w-full py-16 px-6 md:px-12 lg:px-20 bg-gray-50 flex flex-col md:flex-row-reverse items-center gap-12">
+            <section class="w-full p-5 rounded-tl-[70px] rounded-br-[40px] bg-gradient-to-l from-slate-200 from-0% flex flex-col md:flex-row-reverse items-center gap-12">
 
             <!-- Imagen -->
             <div class="md:w-1/2 flex justify-center">
                 <img [src]="item.image" alt="Director"
-                    class="rounded-tl-[70px] rounded-br-[40px] w-full max-w-lg h-auto object-cover shadow-[0px_0px_40px_0px_rgba(138,_43,_226,_0.4)]">
+                    class="rounded-tl-[30px] rounded-br-[30px] w-full max-w-lg h-auto object-cover">
             </div>
 
             <!-- Texto -->
             <div class="md:w-1/2 text-gray-700 space-y-4 text-justify">
                 <h2
-                    class="text-3xl font-bold mb-6 text-gray-900 border-l-4 border-purple-600 pl-4 text-center uppercase">
+                    class="text-xl font-bold mb-6 text-gray-900 border-l-4 border-purple-600 pl-4 text-center uppercase">
                     {{item.nombre}} </h2>
-                <p class="leading-relaxed text-lg italic border-l-4 border-gray-300 pl-4">{{item.descripcion}}</p>
+                <p class="leading-relaxed text-lg italic border-l-4 border-gray-300 pl-4 line-clamp-5">{{item.descripcion}}</p>
 
                 <div class="mt-6 text-center">
                     <p class="font-semibold text-purple-700"></p>

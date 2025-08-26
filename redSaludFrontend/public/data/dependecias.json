@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "Direccion Ejecutica",
+    "descripcion": "Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.",
+    "image": "/images/carrousel/portada1.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Oficina Administración",
+    "descripcion": "Lleva el registro financiero de la institución y asegura la transparencia en el uso de los recursos.",
+    "image": "/images/carrousel/portada2.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Planificacion y Presupuesto",
+    "descripcion": "Implementa soluciones tecnológicas y brinda soporte a los sistemas y plataformas digitales.",
+    "image": "/images/carrousel/portada3.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Oficina De Estadística e Informática",
+    "descripcion": "Gestiona la difusión de información institucional y mantiene la relación con la comunidad.",
+    "image": "/images/carrousel/portada4.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Oficina de Aseguramiento Público",
+    "descripcion": "Encargada de la adquisición, almacenamiento y distribución de bienes y servicios.",
+    "image": "/images/carrousel/portada1.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "OFICINA DE COOPERACIÓN INTERNACIONAL",
+    "descripcion": "Promueve alianzas y proyectos de cooperación con organismos nacionales e internacionales.",
+    "image": "/images/carrousel/portada2.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "OFICINA DE ASESORÍA JURÍDICA",
+    "descripcion": "Brinda asesoramiento legal y vela por el cumplimiento del marco normativo vigente.",
+    "image": "/images/carrousel/portada3.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "OFICINA DE INVESTIGACIÓN Y DESARROLLO",
+    "descripcion": "Impulsa proyectos de innovación y mejora continua para fortalecer la gestión institucional.",
+    "image": "/images/carrousel/portada4.jpg"
+  }
+]

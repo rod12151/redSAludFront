@@ -1,21 +1,32 @@
 <div class="flex">
     <!-- Sidebar fijo -->
-    <aside class="fixed top-[100px] left-0 w-[100px] h-auto  text-white bg-[#00B4DE] rounded-xl">
+    @if (isOpen) {
+    <aside class="fixed top-[100px] left-0  h-auto  text-white bg-[#55d3f0] rounded-xl">
         <!-- Contenido del sidebar -->
         <nav class="p-4">
-            <ul class="space-y-4">
+            <ul class="space-y-4 cursor-pointer">
+                <li class="bg-amber-200 rounded-2xl">
+                    <fa-icon [icon]="faCoffee" />
+                    <a class="text-black">oficina de aseguramiento publico</a>
+                </li>
                 <li>
-                    <i class="bg-white rounded-lg">icono</i><a  class="bg-gradient-to-r from-fuchsia-500 to-cyan-500 bg-clip-text text-transparent">oficina de aseguramiento publico</a></li>
-                <li><a href="#" class="">Opción 2</a></li>
-                <li><a href="#" class="">Opción 3</a></li>
+                    <fa-icon [icon]="faCoffee" />
+                    <a class="text-black">oficina de aseguramiento publico</a>
+                </li>
+                <li>
+                    <fa-icon [icon]="faCoffee" />
+                    <a class="text-black">oficina de aseguramiento publico</a>
+                </li>
             </ul>
         </nav>
     </aside>
+    }
+
 
     <!-- Contenido principal (ocupa el resto) -->
-    <main class="flex-1 ml-64 mt-[80px] p-6 overflow-y-auto">
+    <main class=" overflow-y-auto w-full">
 
-        <app-dependecias-home [dependencias]="dependencias" />
+        <app-dependecias-home [dependencias]="dataResponseDependencia()" />
 
     </main>
 </div>

@@ -1,72 +1,112 @@
-<header class="bg-linear-to-r from-cyan-500 to-blue-500 shadow-md dark:bg-black" >
-  <div class="container mx-auto px-4 flex justify-between items-center py-3">
-    
-    <!-- Logo -->
-    <div class="flex items-center">
-      <img src="/logo/logoRed.png" alt="Logo" class="" />
-    
-    </div>
+<header class=" bg-linear-to-r from-cyan-500 to-blue-500 shadow-md dark:bg-black w-full fixed z-30">
+       <div class="container mx-auto px-4 flex justify-between items-center py-3">
 
-    <!-- Botón hamburguesa (solo en móviles) -->
-    <button 
-      class="md:hidden text-white focus:outline-none"
-      (click)="isOpen = !isOpen">
-      <!-- Ícono -->
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        @if (!isOpen) {
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-        }
-        @if (isOpen) {
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12" />
-        }
-        
+              <!-- Logo -->
+              <div class="flex items-center ">
+                     <img src="/logo/logoRed.png" alt="Logo" class="logo red huamnaga" />
 
-        
-      </svg>
-    </button>
+              </div>
 
-    <!-- NAVBAR normal (pantallas medianas en adelante) -->
-    <nav class="hidden md:block">
-      <ul class="flex space-x-6  text-black font-semibold dark:text-white">
-        <li><a routerLink="/" routerLinkActive="text-white"
-               [routerLinkActiveOptions]="{exact:true}"
-               class=" hover:text-white">INICIO</a></li>
-        <li><a routerLink="/nosotros" routerLinkActive="text-white"
-               class=" hover:text-white">NOSOTROS</a></li>
-        <li><a routerLink="/dependencias" routerLinkActive="text-white"
-               class=" hover:text-white">DEPENDENCIAS</a></li>
-        <li><a routerLink="/convocatorias" routerLinkActive="text-white"
-               class=" hover:text-white">CONVOCATORIAS</a></li>
-        <li><a routerLink="/programas" routerLinkActive="text-white"
-               class=" hover:text-white">PROGRAMAS</a></li>
-        <li><a routerLink="/sgdRedHuamanga" routerLinkActive="text-white"
-               class=" hover:text-white">SGD</a></li>
-      </ul>
-    </nav>
-  </div>
+              <!-- Botón hamburguesa (solo en móviles) -->
+              <button class="md:hidden text-white focus:outline-none" (click)="isOpen = !isOpen">
+                     <!-- Ícono -->
 
-  <!-- NAVBAR móvil (ocupa todo el ancho debajo del logo) -->
-   @if (isOpen) {
-  <nav  class="md:hidden bg-linear-to-r from-cyan-500 to-blue-500 w-full">
-    <ul class="flex flex-col items-center space-y-2 p-4 font-semibold">
-      <li class="w-full text-black "><a routerLink="/" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
-             [routerLinkActiveOptions]="{exact:true}"
-             class="flex justify-center  hover:text-white rounded-sm">INICIO</a></li>
-             
-      <li class="w-full text-black"><a routerLink="/nosotros" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
-             class="flex justify-center  hover:text-white rounded-sm">NOSOTROS</a></li>
-      <li class="w-full text-black"><a routerLink="/dependencias" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
-             class="flex justify-center  hover:text-white rounded-sm">DEPENDENCIAS</a></li>
-      <li class="w-full text-black"><a routerLink="/convocatorias" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
-             class="flex justify-center  hover:text-white rounded-sm">CONVOCATORIAS</a></li>
-      <li class="w-full text-black"><a routerLink="/programas" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
-             class="flex justify-center  hover:text-white rounded-sm">PROGRAMAS</a></li>
-      <li class="w-full text-black"><a routerLink="/sgdRedHuamanga" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
-             class="flex justify-center  hover:text-white rounded-sm">Sistema Gestion Documentaria</a></li>
-    </ul>
-  </nav>
-  }
+                     @if (!isOpen) {
+                     <fa-icon [icon]="iconMenu" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" />
+                     }
+                     @if (isOpen) {
+                     <fa-icon [icon]="iconClose" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" />
+                     }
+
+
+
+
+              </button>
+
+              <!-- NAVBAR normal (pantallas medianas en adelante) -->
+              <nav class="hidden md:block">
+                     <ul class="flex space-x-6 text-sm text-black font-semibold dark:text-white">
+                            <li><a routerLink="/" routerLinkActive="text-white" [routerLinkActiveOptions]="{exact:true}"
+                                          class=" hover:text-white">INICIO</a></li>
+                            <li><a routerLink="/nosotros" routerLinkActive="text-white"
+                                          class=" hover:text-white">NOSOTROS</a></li>
+                            <li class="relative group">
+                                   <a routerLink="/dependencias" routerLinkActive="text-white"
+                                          class=" hover:text-white">DEPENDENCIAS</a>
+                                   <ul
+                                          class="absolute left-0 hidden group-hover:block bg-white text-black shadow-lg rounded-md w-60">
+                                          <li><a routerLink="/nosotros/quienes-somos"
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Direccion Ejecutica</a></li>
+                                          <li><a routerLink="/nosotros/mision-vision"
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina Administración</a>
+                                          </li>
+                                          <li><a routerLink="/nosotros/historia"
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Planificacion y Presupuesto</a>
+                                          </li>
+                                          <li><a routerLink="/nosotros/organigrama"
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina De Estadística e Informática</a>
+                                          </li><li><a routerLink="/nosotros/organigrama"
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina de Aseguramiento Público</a>
+                                          </li>
+                                   </ul>
+
+                            </li>
+                            <li><a routerLink="/convocatorias" routerLinkActive="text-white"
+                                          class=" hover:text-white">CONVOCATORIAS</a></li>
+                            <li><a routerLink="/programas" routerLinkActive="text-white"
+                                          class=" hover:text-white">PROGRAMAS</a></li>
+                            <li><a routerLink="/sgdRedHuamanga" routerLinkActive="text-white"
+                                          class=" hover:text-white">SGD</a></li>
+                     </ul>
+              </nav>
+       </div>
+
+       <!-- NAVBAR móvil (ocupa todo el ancho debajo del logo) -->
+       @if (isOpen) {
+       <nav class="md:hidden bg-linear-to-r from-cyan-500 to-blue-500 w-full ">
+              <ul class="flex flex-col items-center space-y-2 p-4 font-semibold text-xs">
+                     <li class="w-full text-black ">
+                            <a routerLink="/" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                                   [routerLinkActiveOptions]="{exact:true}"
+                                   class="flex justify-center   rounded-sm">INICIO</a>
+
+                     </li>
+
+                     <li class="w-full text-black"><a routerLink="/nosotros"
+                                   routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                                   class="flex justify-center   rounded-sm">NOSOTROS</a></li>
+                     <li class="w-full text-black">
+                            <a routerLink="/dependencias" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                                   class="flex  justify-center   rounded-sm">DEPENDENCIAS
+                                  
+                                          
+                                   <fa-icon [icon]="iconSort" class="pl-2" (click)="submenuDependencias=!submenuDependencias" />
+                                   
+                            </a>
+                            
+                            @if (submenuDependencias) {
+                            <ul class="flex flex-col items-center w-full  bg-white rounded-b-xl">
+                                   <li><a routerLink="/nosotros/quienes-somos" class="block hover:text-blue-300">Direccion Ejecutica</a></li>
+                                   <li><a routerLink="/nosotros/quienes-somos" class="block hover:text-blue-300">Oficina Administración</a></li>
+                                   <li><a routerLink="/nosotros/mision-vision" class="block hover:text-blue-300">Planificacion y Presupuesto</a></li>
+                                   <li><a routerLink="/nosotros/historia" class="block hover:text-blue-300">Oficina De Estadística e Informática</a></li>
+                                   <li><a routerLink="/nosotros/organigrama"
+                                                 class="block hover:text-blue-300">Oficina de Aseguramiento Público</a>
+                                   </li>
+                            </ul>
+                            }
+                     </li>
+                     <li class="w-full text-black"><a routerLink="/convocatorias"
+                                   routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                                   class="flex justify-center   rounded-sm">CONVOCATORIAS</a></li>
+                     <li class="w-full text-black"><a routerLink="/programas"
+                                   routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                                   class="flex justify-center   rounded-sm">PROGRAMAS</a></li>
+                     <li class="w-full text-black"><a routerLink="/sgdRedHuamanga"
+                                   routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                                   class="uppercase flex justify-center   rounded-sm ">Sistema Gestion
+                                   Documentaria</a></li>
+              </ul>
+       </nav>
+       }
 </header>

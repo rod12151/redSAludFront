@@ -1,48 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { dependencia } from '../../../shared/models/dependencia';
 import { DependeciasHome } from "../home/dependecias-home/dependecias-home";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { DependenciaService } from '../../../core/services/dependencia-service';
+import e from 'express';
 
 @Component({
   selector: 'app-dependencias',
-  imports: [DependeciasHome],
+  imports: [DependeciasHome, FontAwesomeModule],
   templateUrl: './dependencias.html',
   styleUrl: './dependencias.css'
 })
-export class Dependencias {
-  isOpen=false
-   dependencias:dependencia[]=[
-      {
-        id:1,
-        nombre:"DIRECCION EJECUTIVA",
-        descripcion:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse praesentium dignissimos ad tempore, nostrum quia eligendi sint cum, quam labore autem nemo molestias dolorum animi. Temporibus aliquid nulla aliquam?",
-        image:"/images/carrousel/portada4.jpg"
-      },
-      {
-        id:2,
-        nombre:"OFICINA DE ADMINISTRACION",
-        descripcion:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse praesentium dignissimos ad tempore, nostrum quia eligendi sint cum, quam labore autem nemo molestias dolorum animi. Temporibus aliquid nulla aliquam?",
-        image:"/images/carrousel/portada4.jpg"
-      },
-      {
-        id:3,
-        nombre:"OFICINA DE PLANEAMIENTO Y PRESUPUESTO",
-        descripcion:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse praesentium dignissimos ad tempore, nostrum quia eligendi sint cum, quam labore autem nemo molestias dolorum animi. Temporibus aliquid nulla aliquam?",
-        image:"/images/carrousel/portada4.jpg"
-      },
-      {
-        id:4,
-        nombre:"OFICINA DE ESTADISTICA E INFORMATICA",
-        descripcion:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse praesentium dignissimos ad tempore, nostrum quia eligendi sint cum, quam labore autem nemo molestias dolorum animi. Temporibus aliquid nulla aliquam?",
-        image:"/images/carrousel/portada4.jpg"
-      },
-      {
-        id:5,
-        nombre:"OFICINA DE ASEGURAMIENTO PUBLICO",
-        descripcion:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse praesentium dignissimos ad tempore, nostrum quia eligendi sint cum, quam labore autem nemo molestias dolorum animi. Temporibus aliquid nulla aliquam?",
-        image:"/images/carrousel/portada4.jpg"
-      }
-      
-      ]
-    
+export class Dependencias implements OnInit {
+  faCoffee = faCoffee;
+  isOpen = false;
 
+  dataResponseDependencia = signal<dependencia[]>([])
+
+  constructor(private dependenciaService: DependenciaService) { }
+
+  ngOnInit(): void {
+    this.optenerdependencias()
+  };
+
+
+  optenerdependencias() {
+    this.dependenciaService.obtenerDependencias.subscribe({
+      next: dataresponse => {
+        this.dataResponseDependencia.set(dataresponse)
+      },
+      error: e => {
+        console.error(e)
+      }
+    })
+  };
 }
