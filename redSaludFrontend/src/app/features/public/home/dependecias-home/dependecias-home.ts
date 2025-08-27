@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { dependencia } from '../../../../shared/models/dependencia';
+import { Dependencia } from '../../../../shared/models/dependencia';
 
 @Component({
   selector: 'app-dependecias-home',
@@ -8,7 +8,7 @@ import { dependencia } from '../../../../shared/models/dependencia';
   styleUrl: './dependecias.css'
 })
 export class DependeciasHome {
-  @Input() dependencias?:dependencia[]
+  @Input() dependencias?:Dependencia[]
  
     isPar(number:number){
       if(number%2==0){

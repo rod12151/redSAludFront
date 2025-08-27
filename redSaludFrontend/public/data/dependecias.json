@@ -2,49 +2,185 @@
   {
     "id": 1,
     "nombre": "Direccion Ejecutica",
-    "descripcion": "Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.",
-    "image": "/images/carrousel/portada1.jpg"
+    "descripcion": "Administra la selección, capacitación y bienestar del personal, garantizando un clima laboral adecuado.",
+    "image": "/images/carrousel/portada1.jpg",
+    "oficinas": [
+      {
+        "id": 1,
+        "idDependencia": 1,
+        "nombre": "Oficina de Recursos Humanos",
+        "descripcion": "Gestiona procesos de contratación, capacitación y bienestar del personal.",
+        "image": "/images/carrousel/portada2.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 1,
+      "nombre": "Juan",
+      "apellidos": "Pérez Ramírez",
+      "correo": "juan.perez@institucion.gob.pe",
+      "profesion": "Administrador",
+      "fechaNacimiento": "1980-05-14"
+    }
   },
   {
     "id": 2,
     "nombre": "Oficina Administración",
     "descripcion": "Lleva el registro financiero de la institución y asegura la transparencia en el uso de los recursos.",
-    "image": "/images/carrousel/portada2.jpg"
+    "image": "/images/carrousel/portada2.jpg",
+    "oficinas": [
+      {
+        "id": 2,
+        "idDependencia": 2,
+        "nombre": "Oficina de Contabilidad",
+        "descripcion": "Supervisa los estados financieros y realiza auditorías internas.",
+        "image": "/images/carrousel/portada3.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 2,
+      "nombre": "María",
+      "apellidos": "Lopez Sánchez",
+      "correo": "maria.lopez@institucion.gob.pe",
+      "profesion": "Contadora",
+      "fechaNacimiento": "1985-11-20"
+    }
   },
   {
     "id": 3,
     "nombre": "Planificacion y Presupuesto",
     "descripcion": "Implementa soluciones tecnológicas y brinda soporte a los sistemas y plataformas digitales.",
-    "image": "/images/carrousel/portada3.jpg"
+    "image": "/images/carrousel/portada3.jpg",
+    "oficinas": [
+      {
+        "id": 3,
+        "idDependencia": 3,
+        "nombre": "Oficina de Proyectos",
+        "descripcion": "Coordina la planificación y seguimiento de proyectos institucionales.",
+        "image": "/images/carrousel/portada1.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 3,
+      "nombre": "Carlos",
+      "apellidos": "Gutiérrez Flores",
+      "correo": "carlos.gutierrez@institucion.gob.pe",
+      "profesion": "Ingeniero de Sistemas",
+      "fechaNacimiento": "1978-03-09"
+    }
   },
   {
     "id": 4,
     "nombre": "Oficina De Estadística e Informática",
     "descripcion": "Gestiona la difusión de información institucional y mantiene la relación con la comunidad.",
-    "image": "/images/carrousel/portada4.jpg"
+    "image": "/images/carrousel/portada4.jpg",
+    "oficinas": [
+      {
+        "id": 4,
+        "idDependencia": 4,
+        "nombre": "Oficina de Análisis de Datos",
+        "descripcion": "Recolecta, procesa y analiza datos estadísticos para la toma de decisiones.",
+        "image": "/images/carrousel/portada2.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 4,
+      "nombre": "Ana",
+      "apellidos": "Fernández Rojas",
+      "correo": "ana.fernandez@institucion.gob.pe",
+      "profesion": "Estadística",
+      "fechaNacimiento": "1990-07-01"
+    }
   },
   {
     "id": 5,
     "nombre": "Oficina de Aseguramiento Público",
     "descripcion": "Encargada de la adquisición, almacenamiento y distribución de bienes y servicios.",
-    "image": "/images/carrousel/portada1.jpg"
+    "image": "/images/carrousel/portada1.jpg",
+    "oficinas": [
+      {
+        "id": 5,
+        "idDependencia": 5,
+        "nombre": "Oficina de Logística",
+        "descripcion": "Se encarga de las adquisiciones y contratos de bienes y servicios.",
+        "image": "/images/carrousel/portada3.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 5,
+      "nombre": "Luis",
+      "apellidos": "Torres Medina",
+      "correo": "luis.torres@institucion.gob.pe",
+      "profesion": "Administrador Público",
+      "fechaNacimiento": "1982-08-11"
+    }
   },
   {
     "id": 6,
-    "nombre": "OFICINA DE COOPERACIÓN INTERNACIONAL",
+    "nombre": "Oficina de Cooperación Internacional",
     "descripcion": "Promueve alianzas y proyectos de cooperación con organismos nacionales e internacionales.",
-    "image": "/images/carrousel/portada2.jpg"
+    "image": "/images/carrousel/portada2.jpg",
+    "oficinas": [
+      {
+        "id": 6,
+        "idDependencia": 6,
+        "nombre": "Oficina de Relaciones Internacionales",
+        "descripcion": "Gestiona convenios y relaciones con instituciones extranjeras.",
+        "image": "/images/carrousel/portada4.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 6,
+      "nombre": "Gabriela",
+      "apellidos": "Martínez Salazar",
+      "correo": "gabriela.martinez@institucion.gob.pe",
+      "profesion": "Internacionalista",
+      "fechaNacimiento": "1987-10-05"
+    }
   },
   {
     "id": 7,
-    "nombre": "OFICINA DE ASESORÍA JURÍDICA",
+    "nombre": "Oficina de Asesoría Jurídica",
     "descripcion": "Brinda asesoramiento legal y vela por el cumplimiento del marco normativo vigente.",
-    "image": "/images/carrousel/portada3.jpg"
+    "image": "/images/carrousel/portada3.jpg",
+    "oficinas": [
+      {
+        "id": 7,
+        "idDependencia": 7,
+        "nombre": "Oficina de Defensa Legal",
+        "descripcion": "Representa legalmente a la institución en procesos administrativos y judiciales.",
+        "image": "/images/carrousel/portada1.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 7,
+      "nombre": "Ricardo",
+      "apellidos": "Castro Paredes",
+      "correo": "ricardo.castro@institucion.gob.pe",
+      "profesion": "Abogado",
+      "fechaNacimiento": "1975-02-18"
+    }
   },
   {
     "id": 8,
-    "nombre": "OFICINA DE INVESTIGACIÓN Y DESARROLLO",
+    "nombre": "Oficina de Investigación y Desarrollo",
     "descripcion": "Impulsa proyectos de innovación y mejora continua para fortalecer la gestión institucional.",
-    "image": "/images/carrousel/portada4.jpg"
+    "image": "/images/carrousel/portada4.jpg",
+    "oficinas": [
+      {
+        "id": 8,
+        "idDependencia": 8,
+        "nombre": "Oficina de Innovación",
+        "descripcion": "Promueve iniciativas de innovación tecnológica y de gestión.",
+        "image": "/images/carrousel/portada2.jpg"
+      }
+    ],
+    "jefeDependencia": {
+      "id": 8,
+      "nombre": "Sofía",
+      "apellidos": "Ramos Delgado",
+      "correo": "sofia.ramos@institucion.gob.pe",
+      "profesion": "Investigadora",
+      "fechaNacimiento": "1992-04-27"
+    }
   }
 ]

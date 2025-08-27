@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { imageCarrousel } from '../../../../shared/models/images';
+import { ImageCarrousel } from '../../../../shared/models/images';
 
 @Component({
   selector: 'app-carrousel-home',
@@ -9,7 +9,7 @@ import { imageCarrousel } from '../../../../shared/models/images';
 })
 export class CarrouselHome {
 
-  images: imageCarrousel[] = [
+  images: ImageCarrousel[] = [
     { id: 1, description: "portada1", enlace: "/images/carrousel/portada1.jpg" },
     { id: 2, description: "portada1", enlace: "/images/carrousel/portada2.jpg" },
     { id: 3, description: "portada1", enlace: "/images/carrousel/portada3.jpg" },

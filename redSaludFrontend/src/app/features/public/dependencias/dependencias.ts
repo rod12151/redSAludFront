@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { dependencia } from '../../../shared/models/dependencia';
+import { Dependencia } from '../../../shared/models/dependencia';
 import { DependeciasHome } from "../home/dependecias-home/dependecias-home";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
@@ -16,7 +16,7 @@ export class Dependencias implements OnInit {
   faCoffee = faCoffee;
   isOpen = false;
 
-  dataResponseDependencia = signal<dependencia[]>([])
+  dataResponseDependencia = signal<Dependencia[]>([])
 
   constructor(private dependenciaService: DependenciaService) { }
 

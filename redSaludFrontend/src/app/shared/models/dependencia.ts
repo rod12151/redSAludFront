@@ -1,9 +1,12 @@
-export interface dependencia{
+import { Persona } from "./persona";
+
+export interface Dependencia{
     id:number;
     nombre:String;
     descripcion:String;
     image:String;
-    oficinas:oficinas[]
+    oficinas:oficinas[];
+    jefeDependencia:Persona;
 }
 export interface oficinas{
     id:number;
