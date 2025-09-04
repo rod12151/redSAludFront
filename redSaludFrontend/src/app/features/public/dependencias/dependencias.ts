@@ -1,28 +1,31 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Dependencia } from '../../../shared/models/dependencia';
-import { DependeciasHome } from "../home/dependecias-home/dependecias-home";
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import { Router, RouterLinkActive, RouterOutlet,RouterLink } from '@angular/router';
 import { DependenciaService } from '../../../core/services/dependencia-service';
-import e from 'express';
 
 @Component({
   selector: 'app-dependencias',
-  imports: [DependeciasHome, FontAwesomeModule],
+  imports: [RouterOutlet, FontAwesomeModule, RouterLinkActive, RouterLink],
   templateUrl: './dependencias.html',
   styleUrl: './dependencias.css'
 })
-export class Dependencias implements OnInit {
-  faCoffee = faCoffee;
-  isOpen = false;
-
+export class Dependencias implements OnInit{
+  private router = inject(Router)
+  private dependenciaService = inject(DependenciaService)
   dataResponseDependencia = signal<Dependencia[]>([])
+  
+  isOpen = true;
 
-  constructor(private dependenciaService: DependenciaService) { }
+ngOnInit(): void {
+  this.optenerdependencias()
+  
+}
 
-  ngOnInit(): void {
-    this.optenerdependencias()
-  };
+  iconMunuRight = faAnglesRight;
+  iconMunuLeft = faAnglesLeft;
 
 
   optenerdependencias() {
@@ -35,4 +38,18 @@ export class Dependencias implements OnInit {
       }
     })
   };
+
+  detalleDependencia(id: number) {
+    if (id != undefined) {
+      console.log(`dependencias/${id}`)
+      this.router.navigate([`dependencias/${id}`])
+
+
+    }
+  }
+
+
+
+
+
 }

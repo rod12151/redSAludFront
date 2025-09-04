@@ -4,5 +4,5 @@ nombre:string;
 apellidos:String;
 correo:string;
 profesion:String;
-fechaNacimiento:Date;
+fechaNacimiento:String;
 }

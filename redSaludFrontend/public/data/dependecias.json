@@ -24,7 +24,7 @@
   },
   {
     "id": 2,
-    "nombre": "Oficina Administración",
+    "nombre": "Administración",
     "descripcion": "Lleva el registro financiero de la institución y asegura la transparencia en el uso de los recursos.",
     "image": "/images/carrousel/portada2.jpg",
     "oficinas": [
@@ -70,7 +70,7 @@
   },
   {
     "id": 4,
-    "nombre": "Oficina De Estadística e Informática",
+    "nombre": "Estadística e Informática",
     "descripcion": "Gestiona la difusión de información institucional y mantiene la relación con la comunidad.",
     "image": "/images/carrousel/portada4.jpg",
     "oficinas": [
@@ -93,7 +93,7 @@
   },
   {
     "id": 5,
-    "nombre": "Oficina de Aseguramiento Público",
+    "nombre": "Aseguramiento Público",
     "descripcion": "Encargada de la adquisición, almacenamiento y distribución de bienes y servicios.",
     "image": "/images/carrousel/portada1.jpg",
     "oficinas": [
@@ -116,7 +116,7 @@
   },
   {
     "id": 6,
-    "nombre": "Oficina de Cooperación Internacional",
+    "nombre": "Cooperación Internacional",
     "descripcion": "Promueve alianzas y proyectos de cooperación con organismos nacionales e internacionales.",
     "image": "/images/carrousel/portada2.jpg",
     "oficinas": [
@@ -139,7 +139,7 @@
   },
   {
     "id": 7,
-    "nombre": "Oficina de Asesoría Jurídica",
+    "nombre": "Asesoría Jurídica",
     "descripcion": "Brinda asesoramiento legal y vela por el cumplimiento del marco normativo vigente.",
     "image": "/images/carrousel/portada3.jpg",
     "oficinas": [

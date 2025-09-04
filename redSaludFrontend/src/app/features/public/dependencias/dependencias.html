@@ -1,32 +1,57 @@
-<div class="flex">
-    <!-- Sidebar fijo -->
-    @if (isOpen) {
-    <aside class="fixed top-[100px] left-0  h-auto  text-white bg-[#55d3f0] rounded-xl">
-        <!-- Contenido del sidebar -->
-        <nav class="p-4">
-            <ul class="space-y-4 cursor-pointer">
-                <li class="bg-amber-200 rounded-2xl">
-                    <fa-icon [icon]="faCoffee" />
-                    <a class="text-black">oficina de aseguramiento publico</a>
-                </li>
-                <li>
-                    <fa-icon [icon]="faCoffee" />
-                    <a class="text-black">oficina de aseguramiento publico</a>
-                </li>
-                <li>
-                    <fa-icon [icon]="faCoffee" />
-                    <a class="text-black">oficina de aseguramiento publico</a>
-                </li>
-            </ul>
-        </nav>
+<div class=" mx-auto px-4 py-8 grid grid-cols-1  ">
+    <aside class="lg:col-span-3 mt-[30px]  max-md:mt-[100px] ">
+
+        <div class="rounded-md border-blue-500 border-2 p-5 md:hidden">
+            <nav class="space-y-2 text-sm bg-white rounded-2xl">
+                <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Dirección
+                    Ejecutiva</a>
+                <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Oficina De
+                    Administración</a>
+                <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Planificación Y
+                    Presupuesto</a>
+                <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Oficina De
+                    Estadistica E informatica
+                    institucionales</a>
+                <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Oficina de
+                    Aseguramiento Público</a>
+            </nav>
+        </div>
+
+        <div class="fixed  hidden md:block">
+            @if (isOpen) {
+            <div class="flex items-center justify-center  ">
+                <div class="space-y-2 text-sm bg-white rounded-2xl h-min-72 p-5 border border-blue-700/30">
+                    @for (item of dataResponseDependencia(); track $index) {
+                        <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500 cursor-pointer"
+                        routerLink="{{item.id}}"
+                        routerLinkActive="text-blue-400 bg-white text-shadow-lg"
+                        >{{item.nombre}} 
+                        </a>
+                    }
+                    
+                    
+                </div>
+                <div class="flex items-center justify-center cursor-pointer  rounded-r-full bg-blue-50 hover:bg-gradient-to-r from-cyan-100 to-cyan-500 " (click)="isOpen=!isOpen">
+                    <fa-icon class="fa-2x hover:text-white mask-r-from-0.5" [icon]="iconMunuLeft"></fa-icon>
+                </div>
+            </div>
+
+            }@else {
+            <div class="  rounded-r-full  bg-blue-50 hover:bg-gradient-to-r from-cyan-100 to-cyan-500 flex items-center justify-center cursor-pointer  "
+                (click)="isOpen=!isOpen">
+                <fa-icon class="fa-2x hover:text-white mask-l-from-0.5" [icon]="iconMunuRight"></fa-icon>
+
+            </div>
+
+            }
+        </div>
+
+
+
+
     </aside>
-    }
-
-
-    <!-- Contenido principal (ocupa el resto) -->
-    <main class=" overflow-y-auto w-full">
-
-        <app-dependecias-home [dependencias]="dataResponseDependencia()" />
-
+    <main class=" space-y-10">
+        <router-outlet></router-outlet>
     </main>
+
 </div>

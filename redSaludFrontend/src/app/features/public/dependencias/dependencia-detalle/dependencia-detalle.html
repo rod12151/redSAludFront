@@ -1,0 +1,26 @@
+<section class=" flex flex-col items-center">
+    <h1
+        class="text-3xl md:text-3xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent text-center">
+        {{dataDependencias().nombre}}</h1>
+    <div class="">
+        <img [src]="dataDependencias().image" class="rounded-xl w-full max-w-lg h-auto object-cover">
+    </div>
+    <div class=" mx-auto px-4 ">
+
+        <p>{{dataDependencias().descripcion}}</p>
+        <h5>{{dataDependencias().jefeDependencia.nombre +dataDependencias().jefeDependencia.apellidos }}</h5>
+    </div>
+</section>
+<section class="m-10  justify-items-center items-center content-center ">
+
+
+    @for (item of dataDependencias().oficinas; track $index) {
+
+    <app-card-oficina [oficina]="item" />
+
+    }
+
+
+
+
+</section>

@@ -1,8 +1,14 @@
+<section class=" border-b border-blue-700/30 pt-10 ">
+    <div class=" mx-auto px-4 ">
+        <h1
+            class="text-3xl md:text-3xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent text-center">
+            DEPENDENCIAS DE LA RED DE SALUD HUAMANGA</h1>
+    </div>
+</section>
 <section class="m-10  justify-items-center items-center content-center ">
-        <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">DEPENDENCIAS DE LA RED DE SALUD HUAMANGA</h2>
-        @if (dependencias) {
+        @if (dataResponseDependencia()) {
 
-        @for (item of dependencias; track $index) {
+        @for (item of dataResponseDependencia(); track $index) {
         @if(isPar($index +1)){
         <section class="w-full p-5 rounded-tl-[70px] rounded-br-[40px] bg-gradient-to-r from-slate-200 from-0% flex flex-col md:flex-row items-center">
 
@@ -58,3 +64,4 @@
 
     }
     </section>
+

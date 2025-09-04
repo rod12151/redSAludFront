@@ -5,10 +5,10 @@ export interface Dependencia{
     nombre:String;
     descripcion:String;
     image:String;
-    oficinas:oficinas[];
+    oficinas:oficina[];
     jefeDependencia:Persona;
 }
-export interface oficinas{
+export interface oficina{
     id:number;
     idDependencia:number;
     nombre:String;

@@ -3,7 +3,6 @@ import { CarrouselHome } from "./carrousel-home/carrousel-home";
 import { SaludosDirectora } from "./saludos-directora/saludos-directora";
 
 import { Dependencia } from '../../../shared/models/dependencia';
-import { DependeciasHome } from "./dependecias-home/dependecias-home";
 import { CardPrimary } from '../../../shared/components/card-primary/card-primary';
 import { DependenciaService } from '../../../core/services/dependencia-service';
 

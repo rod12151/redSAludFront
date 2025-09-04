@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Dependencia } from '../../models/dependencia';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card-primary',
@@ -8,7 +9,15 @@ import { Dependencia } from '../../models/dependencia';
   styleUrl: './card-primary.css'
 })
 export class CardPrimary {
-  @Input() dependencia?:Dependencia
+ private router=inject(Router)
+ @Input() dependencia?:Dependencia
 
+detalleDependencia(id:number){
+    if(id!=undefined){
+      console.log(`dependencias/${id}`)
+      this.router.navigate([`dependencias/${id}`])
+      
 
+    }
+}
 }
