@@ -1,0 +1,39 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed()" [class.mobile-hidden]="isMobile() && isCollapsed()">
+    <div class="sidebar-content">
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                @for (item of menuItems; track $index) {
+                <li class="nav-item" [class.active]="item.active">
+
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon" [innerHTML]="item.icon"></span>
+                        <span class="nav-label" [class.hidden]="isCollapsed()">
+                            {{ item.label }}
+                        </span>
+                        @if (item.badge && !isCollapsed) {
+                        <span class="nav-badge">{{ item.badge }}</span>
+
+                        }
+
+                    </a>
+
+
+
+                </li>
+
+                }
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer" [class.collapsed]="isCollapsed()">
+            <div class="user-info">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face&auto=format"
+                    alt="Usuario" class="user-avatar">
+                <div class="user-details" [class.hidden]="isCollapsed()">
+                    <div class="user-name">Juan Pérez</div>
+                    <div class="user-role">Administrador</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

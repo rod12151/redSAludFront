@@ -3,25 +3,30 @@
     
   <!-- Hero / Título -->
   <section class=" border-b border-blue-700/30 pt-[100px] sm:pt-[80px]" >
-    <div class="max-w-6xl mx-auto px-4 ">
-      <h1 class="text-3xl md:text-3xl font-bold bg-gradient-to-r from-indigo-500 to-blue-500 bg-clip-text text-transparent">Información Institucional</h1>
-      <p class="mt-2 text-black">Conoce quiénes somos, nuestra razón de ser y cómo nos organizamos.</p>
+    <div class="max-w-6xl mx-auto px-4 pb-4">
+      <h1 class="text-3xl md:text-2xl font-bold  bg-clip-text text-[#2A80FF] text-center">Información Institucional</h1>
+      <p class="mt-2 text-black">«La Red de Salud Huamanga, cumpliendo la función de proteger la salud de las población, viene brindando sus servicios a la población, de manera eficaz y eficiente, con calidad y oportunidad, gracias al trabajo constante del personal médico, asistencial y administrativo.</p>
     </div>
   </section>
 
   <!-- Layout principal: aside (índice) + contenido -->
-  <div class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <div class="max-w-10xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
     <!-- Índice lateral -->
-    <aside class="lg:col-span-3 ">
-      <div class="sticky top-24 bg-gradient-to-r from-cyan-100 to-cyan-500 rounded-2xl  border-blue-500 border-2 p-4">
-        <h2 class="text-sm  tracking-wider text-blue  mb-3 uppercase">Índice</h2>
-        <nav class="space-y-2 text-sm bg-white rounded-2xl">
-          <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Nosotros</a>
-          <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Misión</a>
-          <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Visión</a>
-          <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Valores institucionales</a>
-          <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Organigrama</a>
-          <a class="block px-3 py-2 rounded-lg hover:bg-gradient-to-r from-cyan-100 to-cyan-500">Filosofía</a>
+    <aside class="lg:col-span-3 max-sm:hidden w-[250px]">
+      <div class="sticky top-28  rounded-2xl  border-blue-500 border-2 p-4">
+        
+        <nav class="space-y-2 text-sm bg-white rounded-2xl ">
+          <button (click)="scrollTo('nosotros')"class="w-full cursor-pointer text-left  block px-3 py-2 rounded-lg border-b-4 border-black hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold"
+          ngClass="{
+    'text-[#2A80FF] border-[#2A80FF] font-bold': selectedSection === 'nosotros',
+    'hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold': selectedSection !== 'nosotros'
+  }"
+          >Nosotros</button>
+          <button (click)="scrollTo('mision')" class="w-full cursor-pointer text-left block px-3 py-2 rounded-lg border-b-4 border-black hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold">Misión</button>
+          <button (click)="scrollTo('vision')" class="w-full cursor-pointer text-left block px-3 py-2 rounded-lg border-b-4 border-black hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold">Visión</button>
+          <button (click)="scrollTo('valores')" class="w-full cursor-pointer text-left block px-3 py-2 rounded-lg border-b-4 border-black hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold">Valores institucionales</button>
+          <button (click)="scrollTo('organigrama')" class="w-full cursor-pointer text-left block px-3 py-2 rounded-lg border-b-4 border-black hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold">Organigrama</button>
+          <button (click)="scrollTo('filosofia')" class="w-full cursor-pointer text-left block px-3 py-2 rounded-lg border-b-4 border-black hover:text-[#2A80FF] hover:border-[#2A80FF] hover:font-bold">Filosofía</button>
         </nav>
       </div>
     </aside>
@@ -31,7 +36,7 @@
 
       <!-- Nosotros -->
       <section id="nosotros" class="scroll-mt-28">
-        <div class="bg-gray-900/60 rounded-2xl border border-blue-700/30 p-6 md:p-8">
+        <div class="p-6 md:p-8">
           <h2 class="text-2xl font-bold mb-4">Nosotros</h2>
           <p class="text-blue-200/90 leading-7">
             Somos una institución comprometida con <span class="font-semibold">[propósito principal]</span>, enfocada en
@@ -53,7 +58,7 @@
 
       <!-- Misión -->
       <section id="mision" class="scroll-mt-28">
-        <div class="bg-gray-900/60 rounded-2xl border border-blue-700/30 p-6 md:p-8">
+        <div class="p-6 md:p-8">
           <h2 class="text-2xl font-bold mb-2">Misión</h2>
           <p class="text-blue-200/90 leading-7">
             [Redacta aquí una declaración clara y concisa de la misión de la institución].
@@ -63,7 +68,7 @@
 
       <!-- Visión -->
       <section id="vision" class="scroll-mt-28">
-        <div class="bg-gray-900/60 rounded-2xl border border-blue-700/30 p-6 md:p-8">
+        <div class="p-6 md:p-8">
           <h2 class="text-2xl font-bold mb-2">Visión</h2>
           <p class="text-blue-200/90 leading-7">
             [Redacta aquí la visión a mediano/largo plazo y el estado deseado].
@@ -73,7 +78,7 @@
 
       <!-- Valores -->
       <section id="valores" class="scroll-mt-28">
-        <div class="bg-gray-900/60 rounded-2xl border border-blue-700/30 p-6 md:p-8">
+        <div class="p-6 md:p-8">
           <h2 class="text-2xl font-bold mb-4">Valores institucionales</h2>
           <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <li class="rounded-xl border border-blue-700/30 p-4">
@@ -95,11 +100,11 @@
 
       <!-- Organigrama -->
       <section id="organigrama" class="scroll-mt-28">
-        <div class="bg-gray-900/60 rounded-2xl border border-blue-700/30 p-6 md:p-8">
+        <div class="p-6 md:p-8">
           <div class="flex items-center justify-between mb-4">
             <h2 class="text-2xl font-bold">Organigrama</h2>
             <!-- Botón para descargar PDF/imagen del organigrama -->
-            <a href="" target="_blank"
+            <a href="https://redsaludhuamanga.pe/wp-content/uploads/2023/12/ORGANIGRAMA-2023.webp" target="_blank"
                class="text-xs px-3 py-1 rounded-lg border border-blue-500/60 hover:bg-blue-700/30">
               Descargar
             </a>
@@ -107,7 +112,7 @@
 
           <!-- imagen / svg del organigrama -->
           <div class="rounded-xl border border-blue-700/30 overflow-hidden bg-gray-950">
-            <img src="" alt="Organigrama institucional" class="w-full">
+            <img src="/images/fotos/organigrama.png" alt="Organigrama institucional" class="w-full">
           </div>
 
           <!-- leyenda opcional -->
@@ -119,7 +124,7 @@
 
       <!-- Filosofía -->
       <section id="filosofia" class="scroll-mt-28">
-        <div class="bg-gray-900/60 rounded-2xl border border-blue-700/30 p-6 md:p-8">
+        <div class="p-6 md:p-8">
           <h2 class="text-2xl font-bold mb-4">Filosofía</h2>
           <div class="grid md:grid-cols-2 gap-6">
             <div class="rounded-xl border border-blue-700/30 p-4">

@@ -3,7 +3,7 @@
 
               <!-- Logo -->
               <div class="flex items-center ">
-                     <img src="/logo/logoRed.png" alt="Logo" class="cursor-pointer" routerLink="/"/>
+                     <img src="/logo/logoRed.png" alt="Logo" class="cursor-pointer" routerLink="/" />
 
               </div>
 
@@ -15,7 +15,8 @@
                      <fa-icon [icon]="iconMenu" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" />
                      }
                      @if (isOpen) {
-                     <fa-icon [icon]="iconClose" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" />
+                     <fa-icon [icon]="iconClose" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" />
                      }
 
 
@@ -36,18 +37,25 @@
                                    <ul
                                           class="absolute left-0 hidden group-hover:block bg-white text-black shadow-lg rounded-md w-60">
                                           <li><a routerLink="/dependencias/1"
-                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Direccion Ejecutica</a></li>
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Direccion
+                                                        Ejecutica</a></li>
                                           <li><a routerLink="/dependencias/2"
-                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina Administración</a>
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina
+                                                        Administración</a>
                                           </li>
                                           <li><a routerLink="/dependencias/3"
-                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Planificacion y Presupuesto</a>
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Planificacion
+                                                        y Presupuesto</a>
                                           </li>
                                           <li><a routerLink="/dependencias/4"
-                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina De Estadística e Informática</a>
-                                          </li><li><a routerLink="/dependencias/5"
-                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina de Aseguramiento Público</a>
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina De
+                                                        Estadística e Informática</a>
                                           </li>
+                                          <li><a routerLink="/dependencias/5"
+                                                        class="block px-4 py-2 hover:bg-blue-100 rounded-md">Oficina de
+                                                        Aseguramiento Público</a>
+                                          </li>
+
                                    </ul>
 
                             </li>
@@ -57,6 +65,7 @@
                                           class=" hover:text-white">PROGRAMAS</a></li>
                             <li><a routerLink="/sgdRedHuamanga" routerLinkActive="text-white"
                                           class=" hover:text-white">SGD</a></li>
+                            <li routerLink="/estadistica"><fa-icon [icon]="iconMenu"></fa-icon></li>
                      </ul>
               </nav>
        </div>
@@ -78,20 +87,25 @@
                      <li class="w-full text-black">
                             <a routerLink="/dependencias" routerLinkActive="text-blue-400 bg-white text-shadow-lg"
                                    class="flex  justify-center   rounded-sm">DEPENDENCIAS
-                                  
-                                          
-                                   <fa-icon [icon]="iconSort" class="pl-2" (click)="submenuDependencias=!submenuDependencias" />
-                                   
+
+
+                                   <fa-icon [icon]="iconSort" class="pl-2"
+                                          (click)="submenuDependencias=!submenuDependencias" />
+
                             </a>
-                            
+
                             @if (submenuDependencias) {
                             <ul class="flex flex-col items-center w-full  bg-white rounded-b-xl">
-                                   <li><a routerLink="/nosotros/quienes-somos" class="block hover:text-blue-300">Direccion Ejecutica</a></li>
-                                   <li><a routerLink="/nosotros/quienes-somos" class="block hover:text-blue-300">Oficina Administración</a></li>
-                                   <li><a routerLink="/nosotros/mision-vision" class="block hover:text-blue-300">Planificacion y Presupuesto</a></li>
-                                   <li><a routerLink="/nosotros/historia" class="block hover:text-blue-300">Oficina De Estadística e Informática</a></li>
-                                   <li><a routerLink="/nosotros/organigrama"
-                                                 class="block hover:text-blue-300">Oficina de Aseguramiento Público</a>
+                                   <li><a routerLink="/nosotros/quienes-somos"
+                                                 class="block hover:text-blue-300">Direccion Ejecutica</a></li>
+                                   <li><a routerLink="/nosotros/quienes-somos" class="block hover:text-blue-300">Oficina
+                                                 Administración</a></li>
+                                   <li><a routerLink="/nosotros/mision-vision"
+                                                 class="block hover:text-blue-300">Planificacion y Presupuesto</a></li>
+                                   <li><a routerLink="/nosotros/historia" class="block hover:text-blue-300">Oficina De
+                                                 Estadística e Informática</a></li>
+                                   <li><a routerLink="/nosotros/organigrama" class="block hover:text-blue-300">Oficina
+                                                 de Aseguramiento Público</a>
                                    </li>
                             </ul>
                             }
