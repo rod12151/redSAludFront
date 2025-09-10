@@ -1,43 +1,26 @@
-<div class="dashboard-layout" [class.sidebar-collapsed]="dashboardService.isSidebarCollapsed()">
-    <app-header-estadistica
-     (toggleSidebar)="dashboardService.toggleSidebar()"
-        [isSidebarCollapsed]="dashboardService.isSidebarCollapsed()">        
+<div class="dashboard-estadistica" >
+  <header>
+    <app-header-estadistica (toggleSidebar)="dashboardService.toggleSidebar()"
+      [isSidebarCollapsed]="dashboardService.isSidebarCollapsed()">
     </app-header-estadistica>
-    <app-sidebar-estadistica  [isCollapsed]="dashboardService.isSidebarCollapsed()"
+  </header>
+  <div class="content">
+    <aside class="side-content" [class.sidebar-collapsed]="dashboardService.isSidebarCollapsed()">
+      <app-sidebar-estadistica [isCollapsed]="dashboardService.isSidebarCollapsed()"
         [isMobile]="dashboardService.isMobile()">
 
-    </app-sidebar-estadistica>
-      
-      <main class="main-content">
-        <div class="content-wrapper">
-          <h1>Dashboard Principal</h1>
-          <div class="dashboard-grid">
-            <div class="card">
-              <h3>Estadísticas</h3>
-              <p>Contenido de estadísticas aquí</p>
-            </div>
-            <div class="card">
-              <h3>Gráficos</h3>
-              <p>Contenido de gráficos aquí</p>
-            </div>
-            <div class="card">
-              <h3>Reportes</h3>
-              <p>Contenido de reportes aquí</p>
-            </div>
-            <div class="card">
-              <h3>Configuración</h3>
-              <p>Contenido de configuración aquí</p>
-            </div>
-          </div>
-        </div>
-      </main>
-      
-      <!-- Overlay para móvil -->
-      <div 
-        class="sidebar-overlay" 
-        [class.active]="!dashboardService.isSidebarCollapsed() && dashboardService.isMobile()"
-        (click)="dashboardService.collapseSidebar()"
-      ></div>
-    </div>
+      </app-sidebar-estadistica>
+    </aside>
 
-<router-outlet></router-outlet>
+
+    <main class="main-content">
+      <router-outlet></router-outlet>
+
+    </main>
+  </div>
+
+
+  <!-- Overlay para móvil -->
+  <div class="sidebar-overlay" [class.active]="!dashboardService.isSidebarCollapsed() && dashboardService.isMobile()"
+    (click)="dashboardService.collapseSidebar()"></div>
+</div>
