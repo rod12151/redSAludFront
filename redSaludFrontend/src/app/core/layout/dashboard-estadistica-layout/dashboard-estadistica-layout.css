@@ -1,3 +1,13 @@
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+aside{
+  position: fixed;
+  top: 45px;
+}
 .content {
   display: flex;
   flex-direction: row;
@@ -6,19 +16,21 @@
 .side-content {
   width: 250px;
   overflow: hidden;
+  
 }
 
 .main-content {
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
+  
+  margin-top: 60px;
+  margin-left: 250px;
+}
+.main-content-collapsed{
+margin-left: 80px;
 }
 
-.sidebar-collapsed {
-  width: 80px;
-}
+
 
 @media (max-width: 768px) {
   .sidebar-collapsed {

@@ -4,8 +4,8 @@
       [isSidebarCollapsed]="dashboardService.isSidebarCollapsed()">
     </app-header-estadistica>
   </header>
-  <div class="content">
-    <aside class="side-content" [class.sidebar-collapsed]="dashboardService.isSidebarCollapsed()">
+  <div class="content" >
+    <aside class="side-content" >
       <app-sidebar-estadistica [isCollapsed]="dashboardService.isSidebarCollapsed()"
         [isMobile]="dashboardService.isMobile()">
 
@@ -13,7 +13,7 @@
     </aside>
 
 
-    <main class="main-content">
+    <main class="main-content" [class.main-content-collapsed]="dashboardService.isSidebarCollapsed()">
       <router-outlet></router-outlet>
 
     </main>

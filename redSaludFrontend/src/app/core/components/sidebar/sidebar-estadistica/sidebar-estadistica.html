@@ -1,11 +1,11 @@
 <aside class="sidebar" [class.collapsed]="isCollapsed()" [class.mobile-hidden]="isMobile() && isCollapsed()">
-    <div class="sidebar-content">
+    <div class="sidebar-content" [class.collapsed]="isCollapsed()">
         <nav class="sidebar-nav">
             <ul class="nav-list">
                 @for (item of menuItems; track $index) {
                 <li class="nav-item" >
 
-                    <a class="nav-link">
+                    <a class="nav-link" [class.coll]="isCollapsed()"[routerLink]="item.ruta" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
                         <span class="nav-icon" ><fa-icon [icon]="item.icon" class="fa-2x"></fa-icon></span>
                         <span class="nav-label" [class.hidden]="isCollapsed()">
                             {{ item.label }}

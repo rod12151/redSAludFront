@@ -1,17 +1,17 @@
 .sidebar {
-  background: rgb(81, 82, 82);
-  border-right: 10px solid #e9ecef;
+  background: white;
+  border-right: 5px solid #111314;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   z-index: 999;
   width: 250px;
   height: 100vh;
-  transition: transform 0.3s ease;
 }
 
 .sidebar.collapsed {
   width: 80px;
   transition: transform 0.3s ease;
+  border: none;
 }
 
 .sidebar-content {
@@ -40,15 +40,26 @@
 .nav-link {
   display: flex;
   align-items: center;
-  color: #ffffff;
+  color: #080808;
   text-decoration: none;
   padding-inline: 10px;
   position: relative;
+  border-radius: 10px;
 }
-
 .nav-link:hover {
-  color: #000000;
-  background: white;
+  background: red;
+}
+.nav-link.coll{
+  color: rgb(2, 2, 2);
+  
+}
+.nav-link-active.coll{
+  color: rgb(255, 255, 255);
+}
+.nav-link-active{
+  color: #ececec;
+  border-left: 5px solid #f30707;
+  background: rgb(155, 239, 241);
 }
 
 
@@ -57,9 +68,8 @@
 
 
 
-.sidebar.collapsed .nav-icon {
-  margin-right: 0;
-}
+
+
 
 .nav-label {
   flex: 1;
@@ -70,20 +80,10 @@
 }
 
 .nav-label.hidden {
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
+  display: none;
 }
 
-.nav-badge {
-  color: white;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 6px;
-  border-radius: 10px;
-  min-width: 16px;
-  text-align: center;
-}
+
 
 
 /* Mobile Styles */
@@ -92,27 +92,25 @@
     position: fixed;
     top: 60px;
     left: 0;
-    height: calc(100vh - 60px);
+    width: 250px;
     transform: translateX(0);
     transition: transform 0.3s ease;
     z-index: 999;
   }
+  
 
   .sidebar.mobile-hidden {
     transform: translateX(-100%);
+    
+    transition: transform 0.3s ease;
   }
 
-  .sidebar.collapsed {
-    width: 250px;
-  }
+  
 
   .nav-label.hidden {
     opacity: 1;
     width: auto;
   }
 
-  .user-details.hidden {
-    opacity: 1;
-    width: auto;
-  }
+  
 }
