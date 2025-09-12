@@ -1,0 +1,145 @@
+.doctor-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.doctor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: filter 0.5s ease;
+  padding: 2;
+}
+
+.doctor-card:hover .doctor-image {
+  filter: brightness(0.2);
+}
+
+.circle-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.circle-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 3px solid #ffe603fd; /* gray-700 equivalent */
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  transition: all 0.5s ease;
+}
+
+.doctor-card:hover .circle-border::before {
+  border-left: 3px solid #ffe603fd;
+  border-right: 3px solid #ffe603fd;
+  border-top: 3px solid #ffe603fd;
+  border-bottom: 3px solid #ffe603fd;
+}
+
+.icon-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb; /* gray-200 equivalent */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.doctor-card:hover .icon-overlay {
+  opacity: 1;
+  font-size: 80px;
+}
+.doctor-image.rotate-fade {
+  transition: all 1.2s ease;
+}
+
+.doctor-card:hover .doctor-image.rotate-fade {
+  opacity: 0.1;
+  transform: scale(0.9) rotate(5deg);
+  filter: blur(1px) brightness(0.3) saturate(0.5);
+}
+
+/* Versión con efecto de disolución */
+.doctor-image.dissolve {
+  transition: all 1s ease;
+  position: relative;
+}
+
+/**animacion margen*/
+.circle-border.sequential-arcs {
+  overflow: hidden;
+}
+
+.circle-border.sequential-arcs::before,
+.circle-border.sequential-arcs::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.circle-border.sequential-arcs::before {
+  animation-delay: 0s;
+}
+
+.circle-border.sequential-arcs::after {
+  animation-delay: 0.3s;
+}
+
+.doctor-card:hover .circle-border.sequential-arcs::before {
+  border-top-color: #ffe603fd;
+  border-right-color: #ffe603fd;
+  animation: showFirstArc 0.6s ease-out forwards;
+}
+
+.doctor-card:hover .circle-border.sequential-arcs::after {
+  border-bottom-color: #ffe603fd;
+  border-left-color: #ffe603fd;
+  animation: showSecondArc 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes showFirstArc {
+  0% {
+    transform: rotate(-90deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes showSecondArc {
+  0% {
+    transform: rotate(90deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+}

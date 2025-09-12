@@ -47,7 +47,7 @@
   border-radius: 10px;
 }
 .nav-link:hover {
-  background: red;
+  background: #08080869;
 }
 .nav-link.coll{
   color: rgb(2, 2, 2);
@@ -58,8 +58,8 @@
 }
 .nav-link-active{
   color: #ececec;
-  border-left: 5px solid #f30707;
-  background: rgb(155, 239, 241);
+  border-left: 5px solid #080808;
+  background: #08080869;
 }
 
 

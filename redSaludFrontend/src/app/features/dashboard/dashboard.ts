@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {  faHouseUser,
   faSyringe,faUserDoctor,
   faUsersViewfinder,faSquareVirus,
@@ -8,7 +9,7 @@ import {  faHouseUser,
 import { FaIconComponent } from "@fortawesome/angular-fontawesome"; 
 @Component({
   selector: 'app-dashboard',
-  imports: [FaIconComponent],
+  imports: [FaIconComponent,RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
@@ -16,73 +17,73 @@ export class Dashboard {
   stats = signal([{
         icon: faHouseUser,
         label: 'Dashboard',
-        descripcion: '/estadistica'
+        ruta: '/estadistica'
       },
       {
         icon: faSyringe,
         label: 'Barrido SBR',
-        descripcion: '/estadistica/barrido_SBR'
+        ruta: '/estadistica/barrido_SBR'
       },
       {
         icon: faUserDoctor,
         label: 'Profesionales',
-        descripcion: '/estadistica/profesionales'
+        ruta: '/estadistica/profesionales'
       },
       {
         icon: faUsersViewfinder,
         label: 'Digitadores',
-        descripcion: '/estadistica/digitadores'
+        ruta: '/estadistica/digitadores'
       },
       {
         icon: faSquareVirus,
         label: 'Morbilidad',
-        descripcion: '/estadistica/morbilidad'
+        ruta: '/estadistica/morbilidad'
       },
       {
         icon: faSquarePersonConfined,
         label: 'Mortalidad',
-         descripcion: '/estadistica/mortalidad'
+         ruta: '/estadistica/mortalidad'
       },
       
       {
         icon: faAward,
         label: 'Estrategias',
-         descripcion: '/estadistica/estrategias'
+         ruta: '/estadistica/estrategias'
       },
       {
         icon: faUserInjured,
         label: 'Paralisis Flácida',
-         descripcion: '/estadistica/paralisis_flacida'
+         ruta: '/estadistica/paralisis_flacida'
       },
       {
         icon: faBaby,
         label: 'Convenio FED',
-         descripcion: '/estadistica/convenio_FED'
+         ruta: '/estadistica/convenio_FED'
       },
       {
         icon: faEarthAmericas,
         label: 'Poblacion',
-         descripcion: '/estadistica/poblacion'
+         ruta: '/estadistica/poblacion'
       },
       {
         icon: faBookAtlas,
         label: 'Manuales HIS',
-         descripcion: '/estadistica/manuales_HIS'
+         ruta: '/estadistica/manuales_HIS'
       },
       {
         icon: faChartBar,
         label: 'Atenciones',
-         descripcion: '/estadistica/atenciones'
+         ruta: '/estadistica/atenciones'
       },
       {
         icon: faBug,
         label: 'Inconcistencias',
-         descripcion: '/estadistica/inconcistencias'
+         ruta: '/estadistica/inconcistencias'
       },
       {
         icon: faBook,
         label: 'Catalogos',
-         descripcion: '/estadistica/catalogos'
+         ruta: '/estadistica/catalogos'
       }
   ]);
 

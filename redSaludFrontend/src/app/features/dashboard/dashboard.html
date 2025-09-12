@@ -3,26 +3,19 @@
   <h1 class="text-2xl font-bold mb-4 text-center">Dashboard</h1>
   <div class="flex flex-wrap justify-center gap-16 sm:pt-14 md:pt-2">
     @for (stat of stats(); track $index) {
-    <div class="flex flex-col items-center justify-center">
-      <div class="relative w-48 h-48 rounded-full overflow-hidden group">
+    <div class="flex flex-col items-center justify-center" >
+      <div class="relative w-48 h-48 ">
         <!-- Imagen -->
-        <img src="/images/fotos/directora.png" alt="doctor"
-          class="w-full h-full object-cover rounded-full transition duration-500 group-hover:brightness-50" />
+        <div class="doctor-card rotate-fade">
+          <img src="/images/fotos/directora.png" alt="doctor" class="doctor-image" />
 
-        <!-- Arcos que se transforman en círculo -->
-        <div
-          class="absolute inset-0 rounded-full 
-              before:content-[''] before:absolute before:inset-0 
-              before:rounded-full before:border-[3px] before:border-gray-700 
-              before:border-l-transparent before:border-r-transparent 
-              before:transition-all before:duration-500 
-              group-hover:before:border-gray-700 group-hover:before:border-l-gray-700 group-hover:before:border-r-gray-700">
-        </div>
+          <!-- Arcos que se transforman en círculo -->
+          <div class="circle-border sequential-arcs "></div>
 
-        <!-- Ícono que aparece al hover -->
-        <div
-          class="absolute inset-0 flex items-center justify-center text-gray-200 opacity-0 transition duration-500 group-hover:opacity-200">
-          <fa-icon [icon]="stat.icon" class="fa-2xl fa-fade"></fa-icon>
+          <!-- Ícono que aparece al hover -->
+          <div class="icon-overlay" [routerLink]="stat.ruta">
+            <fa-icon [icon]="stat.icon"  class="fa-fade"></fa-icon>
+          </div>
         </div>
       </div>
 
