@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild, Input, signal } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Input, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Chart, ChartConfiguration, registerables } from 'chart.js';
 import { ClientOnlyDirective } from '../../../../shared/directives/client-only.directive';
@@ -29,56 +29,99 @@ Chart.register(...registerables);
   `]
 })
 export class GraficoBarras implements AfterViewInit {
-  
+
 
   @ViewChild('chart') chartRef!: ElementRef<HTMLCanvasElement>;
   chart!: Chart;
-  @Input() dataIndicadorResponse = signal<IndicadoresResponse>({"labels": ["Atención", "Seguimiento", "Metas", "Controles", "Vacunación"],
-  "values": [0, 0, 0, 0, 0]})
-
+  @Input() dataIndicadorResponse = signal<IndicadoresResponse>({
+    "labels": [],
+    "values": []
+  })
+  constructor() {
+    effect(() => {
+      const data = this.dataIndicadorResponse();
+      if (this.chartRef && data.labels.length > 0) {
+        this.renderChart(data);
+      }
+    });
+  }
   ngAfterViewInit() {
-    
-      if (!this.chartRef) return;
-      const colors = this.generateRandomColors(this.dataIndicadorResponse().labels.length);
-      
-      const config: ChartConfiguration = {
-        type: 'bar',
-        data: {
-          labels: this.dataIndicadorResponse().labels,
-          datasets: [{
-            label: 'Indicadores de Salud',
-            data: this.dataIndicadorResponse().values,
-            backgroundColor: colors
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { position: 'top' },
-            title: { display: true, text: 'Indicadores del Área de Salud (dinámico con servicio)' }
-          }
-        }
-      };
+    const data = this.dataIndicadorResponse();
+    if (data.labels.length > 0) {
+      this.renderChart(data);
+    }
+  }
 
-      this.chart = new Chart(this.chartRef.nativeElement, config);
-    
+
+  private renderChart(data: IndicadoresResponse) {
+    if (this.chart) {
+      this.chart.destroy(); // 👈 destruir gráfico anterior para evitar duplicados
+    }
+    const colors = this.generateRandomColors(data.labels.length);
+
+    const config: ChartConfiguration = {
+      type: 'bar',
+      data: {
+        labels: data.labels,
+        datasets: [{
+          label: 'Indicadores de Salud',
+          data: data.values,
+          backgroundColor: colors.background,
+          borderColor:colors.border,
+          borderWidth:1,
+          hoverBackgroundColor:colors.border,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top',
+            display:true,
+            labels:{
+              color:'rgb(8,8,8,8)'
+            }
+            
+           },
+          title: { display: true, text: 'Indicadores del Área de Salud' },
+          
+        }
+      }
+    };
+
+    this.chart = new Chart(this.chartRef.nativeElement, config);
+
+
+
   }
-  private generateRandomColors(count: number): string[] {
-  const colors: string[] = [];
+
+  //generar color aleatorio
+  private generateRandomColors(count: number): { background: string[], border: string[] } {
+  const background: string[] = [];
+  const border: string[] = [];
+
   for (let i = 0; i < count; i++) {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    colors.push(`rgba(${r}, ${g}, ${b}, 0.7)`); // con transparencia
+    const [r, g, b] = this.randomRGB();
+
+    background.push(`rgba(${r}, ${g}, ${b}, 0.4)`); // semi-transparente
+    border.push(`rgba(${r}, ${g}, ${b}, 1)`);       // opaco
   }
-  return colors;
+
+  return { background, border };
 }
-downloadChart() {
-  const url = this.chartRef.nativeElement.toDataURL('image/jpeg', 1.0);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'grafico.jpg';
-  a.click();
+//genera rgb aleatorio
+private randomRGB(): [number, number, number] {
+  return [
+    Math.floor(Math.random() * 256),
+    Math.floor(Math.random() * 256),
+    Math.floor(Math.random() * 256)
+  ];
 }
+  downloadChart() {
+    const url = this.chartRef.nativeElement.toDataURL('image/jpeg', 1.0);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'grafico.jpg';
+    a.click();
+  }
 
 }
