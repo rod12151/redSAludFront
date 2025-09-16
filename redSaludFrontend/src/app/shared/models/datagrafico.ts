@@ -1,6 +1,8 @@
 export interface IndicadoresResponse {
   labels: string[];
-  values: number[];
+  atendidosEess: number[];
+  atencionesServ:number[];
+  atendidosServ:number[];
 }
 export interface filtroBusquedaIndicadores{
   red:string,

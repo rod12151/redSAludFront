@@ -1,0 +1,99 @@
+[{
+    "id":"1",
+    "microRed":"BELEN",
+    "centroSalud":["RANCHA","BELEN","SANTA ANA","HUASCAHURA","MORRO DE ARICA","BARRIOS ALTOS"]
+
+},
+{
+    "id":"2",
+    "microRed":"CARMEN ALTO",
+    "centroSalud":["VISTA ALEGRE","POKRAS","YANAMA","CARMEN ALTO"]
+
+},
+{
+    "id":"3",
+    "microRed":"CHIARA",
+    "centroSalud":["ALLPACHACA","SACHABANBA","CHIARA","LLACHOCCMAYO","MANALLASACC"]
+
+},
+{
+    "id":"4",
+    "microRed":"CHONTACA",
+    "centroSalud":["PAMPAMARCA","CHONTACA","ACOCRO","CCOLLANA","SECCELAMBRAS"]
+
+},
+{
+    "id":"5",
+    "microRed":"LICENCIADOS",
+    "centroSalud":["LICENCIADOS","VILLA SAN CRISTOBAL","MOLLEPATA"]
+
+},
+{
+    "id":"6",
+    "microRed":"MUYURINA",
+    "centroSalud":["NIÑO YUCAY","LARAMATA","PACAYCASA","PUESTO DE SALUD HUAYLLAPAMPA","SIMPAPATA","SANTIAGO DE PISCHA","MUYURINA","LA COMPAÑIA","ATACOCHA"]
+
+},
+{
+    "id":"7",
+    "microRed":"OCROS",
+    "centroSalud":["CCERAOCRO","CCACCAMARCA","MAYABAMBA","CHUMBES","OCROS","NIÑO JESUS DE PAJONAL"]
+
+},
+{
+    "id":"8",
+    "microRed":"PARAS",
+    "centroSalud":["IGLESIA HUASI","CCARHUACCOCCO","SAN JACINTO DE ESPITE","PARAS","CRUZ PAMPA"]
+
+},
+{
+    "id":"9",
+    "microRed":"PUTACCA",
+    "centroSalud":["PUTACCA","CUCHUQUESERA","ROSASPATA","MILLPO","CATALINAYOC","PUNKUPATA"]
+
+},
+{
+    "id":"10",
+    "microRed":"QUINUA",
+    "centroSalud":["ACOSVINCHOS","URPAY","HUAYCHAO","LLAMAHUILLCA","SUSO","QUINUA"]
+
+},
+{
+    "id":"11",
+    "microRed":"SAN JUAN BAUTISTA",
+    "centroSalud":["LOS OLIVOS","MIRAFLORES","ÑAHUINPUQUIO","SAN JUAN BAUTISTA","24 DE JUNIO"]
+
+},
+{
+    "id":"12",
+    "microRed":"SANTA ELENA",
+    "centroSalud":["HUAYHUACONDO","CONCHOPATA","SANTA ELENA","TAMBILLO","YANAMILLA"]
+
+},
+{
+    "id":"13",
+    "microRed":"SOCOS",
+    "centroSalud":["SAN PEDRO DE CACHI","LUYANTA","SAN RAFAEL","SOCOS","MANZANAYOCC","BELLAVISTA","SAN JOSE DE TICCLAS","MOLINOS (RUMIHUASI)","SANTA ROSA DE COCHABAMBA"]
+
+},
+{
+    "id":"14",
+    "microRed":"TOTOS",
+    "centroSalud":["VILCANCHOS","QUIÑASI","CHUYMAY","TOTOS","COCAS"]
+
+},
+
+{
+    "id":"15",
+    "microRed":"VINCHOS",
+    "centroSalud":["ARIZONA","QASANCCAY","CCARHUACCPAMPA","PACCHA","VINCHOS","OCCOLLO","CCOÑANI","SAN JUAN CULLUHUANCCA","TONSULLA OCCO","CCARHUACC LICAPA","ÑAUPALLACCTA"]
+
+},
+{
+    "id":"16",
+    "microRed":"NO MICRORED",
+   "centroSalud":["CENTRO DE SALUD MENTALCOMUNITARIO JESUS NAZARENO- KUSKA WIÑARISUN","CENTRO DE SALUD MENTAL COMUNITARIO MUSUQ RIKCHAY","HOSPITAL  JESUS NAZARENO"] 
+
+}
+    
+]
