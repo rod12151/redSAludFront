@@ -145,5 +145,9 @@ export class BarridoSBR implements OnInit {
     this.buscar();
 
   }
-}
+  descargarExcel(){
+    this.datosService.downloadExcel(this.filtros)
 
+  
+}
+}

@@ -22,6 +22,20 @@ export class indicadoresService {
     return this.http.get<IndicadoresResponse>(`${this.apiUrl}/registros/grafico?red=${filtro.red}&anio=${filtro.anio}&mes=${filtro.mes}&microRed=${filtro.microred}&ipress=${filtro.ipress}`)
   }
 
+  downloadExcel(filtro:filtroBusquedaIndicadores) {
+  this.http.get(`http://localhost:8080/api/reportes/excel?red=${filtro.red}&anio=${filtro.anio}&mes=${filtro.mes}&microRed=${filtro.microred}&ipress=${filtro.ipress}`, {
+    responseType: 'blob'
+  }).subscribe((res: Blob) => {
+    const url = window.URL.createObjectURL(res);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'grafico.xlsx';
+    a.click();
+    window.URL.revokeObjectURL(url);
+  });
+}
+
+
 
 
 }
