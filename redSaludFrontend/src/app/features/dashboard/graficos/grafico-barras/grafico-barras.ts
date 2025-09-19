@@ -14,7 +14,7 @@ Chart.register(...registerables);
   styles: [`
     .chart-container {
       width: 100%;
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
     }
   `]
@@ -63,7 +63,8 @@ export class GraficoBarras implements AfterViewInit {
       this.chart.destroy(); // 👈 destruir gráfico anterior para evitar duplicados
     }
     const colors = this.generateRandomColors(data.labels.length);
-    const colors2 = this.generateRandomColors(data.labels.length);
+    const colors2 = this.generateRandomColors(data.labels.length);    
+    const colors3 = this.generateRandomColors(data.labels.length);
 
     const config: ChartConfiguration = {
       type: 'bar',
@@ -74,19 +75,26 @@ export class GraficoBarras implements AfterViewInit {
           data: data.atendidosEess,
           backgroundColor: colors.background,
           borderColor: colors.border,
-          borderWidth: 1,
+          borderWidth: 3,
           hoverBackgroundColor: colors.border,
-
         }, {
-          label: 'atendidos servicios',
-          data: data.atendidosServ,
+          label: 'atenciones servicios',
+          data: data.atencionesServ,
           backgroundColor: colors2.background,
           borderColor: colors2.border,
-          borderWidth: 1,
+          borderWidth: 3,
           hoverBackgroundColor: colors2.border,
+        },{
+          label: 'atendidos servicios',
+          data: data.atendidosServ,
+          backgroundColor: colors3.background,
+          borderColor: colors3.border,
+          borderWidth: 3,
+          hoverBackgroundColor: colors3.border,
+          hidden:true
+        }
 
-
-        }]
+      ]
       },
       options: {
         responsive: true,
@@ -95,16 +103,29 @@ export class GraficoBarras implements AfterViewInit {
             position: 'top',
             display: true,
             labels: {
-              color: 'rgb(8,8,8,8)'
+              color: 'rgb(8,8,8,8)',
+              font: {
+                size: 14
+              },
+              usePointStyle: true,
+              padding: 20
             }
 
           },
           title: {
             display: true,
-            text: "INDICADORES"
+            text: "INDICADORES",
+            font: {
+              size: 16,
+              weight: 'bold'
+            },
+            padding: {
+              top: 10,
+              bottom: 30
+            }
           },
 
-
+          
         }
       },
     };

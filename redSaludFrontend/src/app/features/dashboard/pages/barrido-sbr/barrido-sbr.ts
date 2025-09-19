@@ -1,17 +1,24 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, ViewChild } from '@angular/core';
 import { GraficoBarras } from '../../graficos/grafico-barras/grafico-barras';
 import { indicadoresService } from '../../../../core/services/indicadores-service';
 import { filtroBusquedaIndicadores, IndicadoresResponse } from '../../../../shared/models/datagrafico';
 import { microRedService } from '../../../../core/services/microRed-service';
 import { microRed } from '../../../../shared/models/microRed';
+import { TablaIndicador } from "../../../../shared/components/tabla-indicador/tabla-indicador";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {  faSquarePollVertical,faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-barrido-sbr',
-  imports: [GraficoBarras],
+  imports: [GraficoBarras, TablaIndicador,FontAwesomeModule],
   templateUrl: './barrido-sbr.html',
   styleUrls: ['./barrido-sbr.css']
 })
 export class BarridoSBR implements OnInit {
+  @ViewChild(GraficoBarras) chartComp!: GraficoBarras;
+  iconBar=faSquarePollVertical;
+  iconExcel=faFileExcel;
+
   constructor(private datosService: indicadoresService, private microRedService: microRedService) { }
   dataResponce = signal<IndicadoresResponse>({
     "labels": [],
@@ -147,7 +154,8 @@ export class BarridoSBR implements OnInit {
   }
   descargarExcel(){
     this.datosService.downloadExcel(this.filtros)
-
-  
-}
+  }
+  descargarGrafico(){
+    this.chartComp.downloadChart()
+  }
 }

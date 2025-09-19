@@ -13,11 +13,7 @@ aside{
   flex-direction: row;
 }
 
-.side-content {
-  width: 250px;
-  overflow: hidden;
-  
-}
+
 
 .main-content {
   flex: 1;
@@ -27,7 +23,8 @@ aside{
   margin-left: 250px;
 }
 .main-content-collapsed{
-margin-left: 80px;
+
+margin-left: 100px;
 }
 
 
@@ -36,4 +33,7 @@ margin-left: 80px;
   .sidebar-collapsed {
     width: 0;
   }
+  .main-content-collapsed{
+margin-left: 0;
+}
 }

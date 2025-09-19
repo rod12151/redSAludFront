@@ -1,99 +1,110 @@
-<label class=" flex text-xl font-medium text-gray-700 text-center w-full  justify-center">
-      GRAFICOS ESTADISTICOS BARRIDO SBR
-    </label>
-@if (dataResponce().labels.length>0) {
-<app-grafico-barras [dataIndicadorResponse]="dataResponce()" [title]="titleGrafico()"></app-grafico-barras>
-}@else {
-<div class="text-center text-gray-500 p-4">
-  📉 No hay datos disponibles para mostrar el gráfico
+<p class=" flex text-xl font-medium text-gray-700 text-center w-full  justify-center bg-blue-300">
+  GRAFICOS ESTADISTICOS BARRIDO SBR
+</p>
+<div class="mx-auto  grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <div class="lg:col-span-2 w-full justify-center items-center">
+    <div class="grid grid-cols-2  ">
+      <div class="col-span-2">
+        <p class="text-sm font-medium text-gray-700">RED</p>
+        <select id="red"
+          class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="" disabled selected>{{labelsRed[0]}}</option>
+          @for (option of labelsRed; track $index) {
+          <option [value]="option">
+            {{ option }}
+          </option>
+          }
+        </select>
+      </div>
+      <div class=" lg:col-span-2">
+        <p class="text-sm font-medium text-gray-700">
+          MICRORED
+        </p>
+        <select id="microred" (change)="changeMicrored($event)"
+          class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="" disabled selected>{{filtros.microred}}</option>
+          @for (option of labelsMicroRed; track $index) {
+          <option [value]="option">
+            {{ option }}
+          </option>
+          }
+        </select>
+      </div>
+      <div class=" lg:col-span-2">
+        <p class="text-sm font-medium text-gray-700">
+          puesto de salud
+        </p>
+        <select id="ipress" (change)="changeIpress($event)"
+          class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="" disabled selected>{{filtros.ipress}}</option>
+          @for (option of labelsPs; track $index) {
+          <option [value]="option">
+            {{ option }}
+          </option>
+          }
+        </select>
+      </div>
+      <div class=" lg:col-span-2">
+        <p class="text-sm font-medium text-gray-700">
+          AÑO
+        </p>
+        <select id="anio" (change)="changeAnio($event)"
+          class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="" disabled selected>{{filtros.anio}}</option>
+          @for (option of labelsAnio; track $index) {
+          <option [value]="option">
+            {{ option }}
+          </option>
+          }
+        </select>
+      </div>
+      <div class=" lg:col-span-2">
+        <p class="text-sm font-medium text-gray-700">
+          MES
+        </p>
+        <select id="mes" (change)="changeMes($event)"
+          class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="" disabled selected>{{labelsMeses[0].nombre}}</option>
+          @for (option of labelsMeses; track $index) {
+          <option [value]="option.value">
+            {{ option.nombre }}
+          </option>
+
+          }
+
+        </select>
+      </div>
+      <div class="lg:col-span-2">
+        <button
+          class="p-2 mt-4 w-48 bg-blue-300 text-black cursor-pointer rounded-xl hover:bg-blue-700 hover:text-white"
+          (click)="descargarGrafico()">
+          <fa-icon [icon]="iconBar" class="fa-xl"></fa-icon>DESCARGAR</button>
+
+
+      </div>
+      <div class="lg:col-span-2">
+        <button
+          class="p-2 mt-4 w-48 bg-blue-300 text-black cursor-pointer rounded-xl hover:bg-blue-700 hover:text-white"
+          (click)="descargarExcel()">
+          <fa-icon [icon]="iconExcel" class="fa-xl"></fa-icon> DESCARGAR</button>
+      </div>
+
+    </div>
+  </div>
+  <div class="lg:col-span-9 space-y-10">
+    @if (dataResponce().labels.length>0) {
+    <app-grafico-barras [dataIndicadorResponse]="dataResponce()" [title]="titleGrafico()"></app-grafico-barras>
+    }@else {
+    <div class="text-center text-gray-500 p-4">
+      📉 No hay datos disponibles para mostrar el gráfico
+    </div>
+    }
+  </div>
 </div>
-}
-<button class="bg-amber-950 rounded-2xl" (click)="descargarExcel()">descargamé</button>
+<br class="w-full border-solid">
 
-<div class="flex flex-row items-start gap-2 p-4 justify-center">
-  <div class="flex flex-col">
-    <label class="text-sm font-medium text-gray-700" >RED</label>
-     <select id="red"
-      class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option value="" disabled selected>{{labelsRed[0]}}</option>
-      @for (option of labelsRed; track $index) {
-      <option [value]="option">
-        {{ option }}
-      </option>
-
-      }
-      </select>
-  </div>
-  <div class=" flex flex-col">
-    <label class="text-sm font-medium text-gray-700">
-      MICRORED
-    </label>
-
-    <select id="microred" (change)="changeMicrored($event)"
-      class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option value="" disabled selected>{{filtros.microred}}</option>
-      @for (option of labelsMicroRed; track $index) {
-      <option [value]="option">
-        {{ option }}
-      </option>
-
-      }
-
-    </select>
-  </div>
-  <div class=" flex flex-col">
-    <label class="text-sm font-medium text-gray-700">
-      puesto de salud
-    </label>
-    <select id="ipress" (change)="changeIpress($event)"
-      class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option value="" disabled selected>{{filtros.ipress}}</option>
-      @for (option of labelsPs; track $index) {
-      <option [value]="option">
-        {{ option }}
-      </option>
-
-      }
-
-    </select>
-  </div>
-  <div class=" flex flex-col"><label class="text-sm font-medium text-gray-700">
-      AÑO
-    </label>
-    <select id="anio" (change)="changeAnio($event)"
-      class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option value="" disabled selected>{{filtros.anio}}</option>
-      @for (option of labelsAnio; track $index) {
-      <option [value]="option">
-        {{ option }}
-      </option>
-
-      }
-
-    </select>
-  </div>
-  <div class=" flex flex-col"> <label class="text-sm font-medium text-gray-700">
-      MES
-    </label>
-    <select id="mes" (change)="changeMes($event)"
-      class="block w-48 rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option value="" disabled selected>{{labelsMeses[0].nombre}}</option>
-      @for (option of labelsMeses; track $index) {
-      <option [value]="option.value">
-        {{ option.nombre }}
-      </option>
-
-      }
-
-    </select>
-  </div>
-
-
-
-
-
-
-
-
-
-</div>
+<section>
+  @if (dataResponce().labels.length>0) {
+  <app-tabla-indicador [dataIndicadorResponse]="dataResponce()"></app-tabla-indicador>
+  }
+</section>

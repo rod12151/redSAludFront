@@ -1,0 +1,33 @@
+@if(dataIndicadorResponse().labels.length>0){
+<div class="overflow-x-auto">
+    <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    curso_vida</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    atendidos_eess</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                     atendidos_serv</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                   atenciones_serv</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-gray-200">
+            @for (item of cantidad; track $index) {
+            <tr>
+                
+                <td class="px-6 py-4 whitespace-nowrap">{{dataIndicadorResponse().labels[item]}}</td>
+
+                <td class="px-6 py-4 whitespace-nowrap">{{dataIndicadorResponse().atendidosEess[item]}}</td>
+
+                <td class="px-6 py-4 whitespace-nowrap">{{dataIndicadorResponse().atencionesServ[item]}}</td>
+                
+                <td class="px-6 py-4 whitespace-nowrap">{{dataIndicadorResponse().atendidosServ[item]}}</td>
+             </tr>
+            }
+            <!-- More rows -->
+        </tbody>
+    </table>
+</div>
+}
