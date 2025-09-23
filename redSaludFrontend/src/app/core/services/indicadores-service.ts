@@ -9,7 +9,6 @@ import { filtroBusquedaIndicadores, IndicadoresResponse } from '../../shared/mod
   providedIn: 'root'
 })
 export class indicadoresService {
-   private Url = '/data/indicadores.json';
    private apiUrl = 'http://localhost:8080/api';
    constructor(private http: HttpClient) {}
 
