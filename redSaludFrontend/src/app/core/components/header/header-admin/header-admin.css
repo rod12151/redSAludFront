@@ -36,7 +36,7 @@
     }
 
     .menu-toggle.rotated {
-      transform: rotate(90deg);
+      transform: rotate(100deg);
     }
 
     .app-title {
@@ -51,7 +51,7 @@
       align-items: center;
       gap: 20px;
     }
-    fa-icon{
+    p{
       cursor: pointer;
       
     }
@@ -61,6 +61,41 @@
   align-items: center;
   justify-content: center;
 }
+
+.menu-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 120%; /* arriba del icono */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+.menu-text::after {
+  content: '';
+  position: absolute;
+  bottom: 100%; /* la punta de la burbuja */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #fdfdfd transparent transparent transparent;
+}
+
+.menu-container:hover .menu-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
     /* Responsive */
     @media (max-width: 768px) {
       .header {

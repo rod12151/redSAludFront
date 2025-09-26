@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderEstadistica } from "../../components/header/header-estadistica/header-estadistica";
 import { SidebarEstadistica } from "../../components/sidebar/sidebar-estadistica/sidebar-estadistica";
-import { DashboardEstadisticaService } from '../../services/dashboard-estadistica-service';
+import { DashboardService } from '../../services/dashboard-estadistica-service';
 
 @Component({
   selector: 'app-dashboard-estadistica-layout',
@@ -12,5 +12,5 @@ import { DashboardEstadisticaService } from '../../services/dashboard-estadistic
 })
 export class DashboardEstadisticaLayout {
 
-   constructor(public dashboardService: DashboardEstadisticaService) {}
+   constructor(public dashboardService: DashboardService) {}
 }

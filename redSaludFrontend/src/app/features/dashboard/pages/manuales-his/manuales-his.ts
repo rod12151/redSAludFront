@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './manuales-his.css'
 })
 export class ManualesHIS {
+  listas:String[]=["manual1","manual2","manual3","manual4","manual5","manual6","manual7","manual8"]
 
 }

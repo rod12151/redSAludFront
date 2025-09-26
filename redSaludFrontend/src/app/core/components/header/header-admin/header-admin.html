@@ -1,17 +1,16 @@
 <header class="header">
   <div class="header-left">
     <button class="menu-toggle" (click)="toggleSidebar.emit()" [class.rotated]="!isSidebarCollapsed()">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-      </svg>
+      
+      <fa-icon [icon]="menuIcon" class="fa-2xl"></fa-icon>
     </button>
-    <h2 class="app-title">Reportes estadisticos </h2>
+    <h2 class="app-title">ADMINISTRADOR </h2>
   </div>
 
   <div class="header-right">
    
     <div class="menu-container" routerLink="/">
-      <fa-icon [icon]="homeIcon" class="fa-2xl"></fa-icon>
+        <P>SALIR</P>
       <span class="menu-text">SALIR</span>
     </div>
 

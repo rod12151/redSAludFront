@@ -14,6 +14,12 @@ export const routes: Routes = [
         .then(m=>m.DASHBOARD_ESTADISTICA_LAYOUT_RUTES)
 
     },
+    {
+        path:'admin',
+        loadChildren:() => import('./core/layout/dashboard-admin-layout/dashboard-admin-layout.routes')
+        .then(m=>m.DASHBOARD_ADMIN_LAYOUT_RUTES)
+
+    },
     
 
 

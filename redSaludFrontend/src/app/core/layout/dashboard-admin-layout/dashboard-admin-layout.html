@@ -1,0 +1,26 @@
+<div class="dashboard-estadistica" >
+  <header>
+    <app-header-admin (toggleSidebar)="dashboardService.toggleSidebar()"
+      [isSidebarCollapsed]="dashboardService.isSidebarCollapsed()">
+    </app-header-admin>
+  </header>
+  <div class="content" >
+    <aside class="side-content" >
+      <app-sidebar-admin [isCollapsed]="dashboardService.isSidebarCollapsed()"
+        [isMobile]="dashboardService.isMobile()">
+
+      </app-sidebar-admin>
+    </aside>
+
+
+    <main class="main-content" [class.main-content-collapsed]="dashboardService.isSidebarCollapsed()">
+      <router-outlet></router-outlet>
+
+    </main>
+  </div>
+
+
+  <!-- Overlay para móvil -->
+  <div class="sidebar-overlay" [class.active]="!dashboardService.isSidebarCollapsed() && dashboardService.isMobile()"
+    (click)="dashboardService.collapseSidebar()"></div>
+</div>

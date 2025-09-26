@@ -1,0 +1,39 @@
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+aside{
+  position: fixed;
+  top: 45px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  
+  margin-top: 60px;
+  margin-left: 250px;
+}
+.main-content-collapsed{
+
+margin-left: 100px;
+}
+
+
+
+@media (max-width: 768px) {
+  .sidebar-collapsed {
+    width: 0;
+  }
+  .main-content-collapsed{
+margin-left: 0;
+}
+}

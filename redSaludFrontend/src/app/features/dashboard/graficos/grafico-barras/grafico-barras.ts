@@ -159,10 +159,10 @@ export class GraficoBarras implements AfterViewInit {
     ];
   }
   downloadChart() {
-    const url = this.chartRef.nativeElement.toDataURL('image/jpeg', 1.0);
+    const url = this.chartRef.nativeElement.toDataURL('image/png', 1.0);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'grafico.jpg';
+    a.download = 'grafico.png';
     a.click();
   }
 

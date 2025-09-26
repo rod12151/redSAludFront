@@ -4,7 +4,7 @@ import { computed, effect, inject, Injectable, PLATFORM_ID, signal } from '@angu
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardEstadisticaService {
+export class DashboardService {
   private platformId = inject(PLATFORM_ID);
   private isBrowser = isPlatformBrowser(this.platformId);
   //Signals para el estado del dashboard
