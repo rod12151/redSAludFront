@@ -10,18 +10,18 @@
       </header>
 
       <!-- Form -->
-      <form class="login-form" action="#" method="post" novalidate>
+      <form [formGroup]="loginForm" class="login-form"  >
         <!-- Email -->
         <label class="field">
           <span class="label-text">Correo electrónico</span>
-          <input
+          <input 
+          formControlName="username"
             type="text"
             name="username"
             placeholder="tucorreo@ejemplo.com"
             required
             autocomplete="username"
             inputmode="username"
-            [(ngModel)]="loginObj.username"
           />
         </label>
 
@@ -29,13 +29,13 @@
         <label class="field">
           <span class="label-text">Contraseña</span>
           <input
+          formControlName="password"
             type="password"
             name="password"
             placeholder="••••••••"
             minlength="6"
             required
             autocomplete="current-password"
-            [(ngModel)]="loginObj.password"
           />
         </label>
 

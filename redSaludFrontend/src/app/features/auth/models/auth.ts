@@ -1,4 +1,10 @@
-export interface Loginrequest{
+export interface LoginRequest{
     username:string,
     password:string
+}
+export interface TokenResponse{
+    accessToken:string,
+    refreshToken:string,
+    username:string
+    
 }
