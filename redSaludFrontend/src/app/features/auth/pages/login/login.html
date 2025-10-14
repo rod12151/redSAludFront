@@ -1,0 +1,73 @@
+<div class="body">
+<main class="page">
+    <!-- Tarjeta de login -->
+    <section class="auth-card" aria-labelledby="login-title">
+      <!-- Logo / título -->
+      <header class="auth-header">
+        <div class="logo" aria-hidden="true">RED DE SALUD HUAMANGA</div>
+        <h1 id="login-title" class="title">Iniciar sesión</h1>
+        <p class="subtitle">Accede a tu cuenta de forma segura</p>
+      </header>
+
+      <!-- Form -->
+      <form class="login-form" action="#" method="post" novalidate>
+        <!-- Email -->
+        <label class="field">
+          <span class="label-text">Correo electrónico</span>
+          <input
+            type="text"
+            name="username"
+            placeholder="tucorreo@ejemplo.com"
+            required
+            autocomplete="username"
+            inputmode="username"
+            [(ngModel)]="loginObj.username"
+          />
+        </label>
+
+        <!-- Contraseña -->
+        <label class="field">
+          <span class="label-text">Contraseña</span>
+          <input
+            type="password"
+            name="password"
+            placeholder="••••••••"
+            minlength="6"
+            required
+            autocomplete="current-password"
+            [(ngModel)]="loginObj.password"
+          />
+        </label>
+
+        <!-- Opciones -->
+        <div class="options">
+          
+          <a class="forgot" href="#" aria-label="Olvidé mi contraseña">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- Submit -->
+        <button class="btn primary" type="button" (click)=onLogin()>Entrar</button>
+
+        <!-- Divider -->
+        <div class="divider"><span></span></div>
+
+        <!-- Social (simples botones visuales, sin integración) -->
+      
+      </form>
+
+      <!-- Pie -->
+      <footer class="auth-footer">
+        <p>¿No tienes cuenta? <a href="#">Regístrate</a></p>
+      </footer>
+    </section>
+
+    <!-- Ilustración lateral en pantallas grandes -->
+    <aside class="hero" aria-hidden="true">
+      <div class="hero-inner">
+        <h2>Bienvenido de vuelta</h2>
+        <p>Accede para ver tus proyectos, tareas y estadísticas en un solo lugar.</p>
+      </div>
+    </aside>
+</main>
+</div>
+
