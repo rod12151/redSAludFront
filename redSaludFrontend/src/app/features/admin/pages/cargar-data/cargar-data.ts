@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
 import { DataServices } from '../../../../core/services/data-services';
 
 
@@ -8,7 +8,7 @@ import { DataServices } from '../../../../core/services/data-services';
   templateUrl: './cargar-data.html',
   styleUrl: './cargar-data.css'
 })
-export class CargarData {
+export class CargarData implements OnInit{
 
   verEjemplo: boolean = false;
   isDragging = signal(false);
@@ -17,10 +17,14 @@ export class CargarData {
   file:any;
   respuesta=signal(null);
   cargando=signal(false);
+
 constructor( 
   private dataService:DataServices,
-  private cdr: ChangeDetectorRef
+  private cdr: ChangeDetectorRef,
+
 ){}
+ngOnInit(): void {
+}
   private validTypes = [
     'application/vnd.ms-excel', // .xls
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' // .xlsx
@@ -89,5 +93,15 @@ constructor(
       })
     }
 
+  }
+  getPrueb(){
+    this.dataService.prueba().subscribe({
+      next:data=>{
+        console.log(data)
+      },
+      error:e=>{
+        console.error(e)
+      }
+    })
   }
 }

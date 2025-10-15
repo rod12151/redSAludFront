@@ -17,4 +17,10 @@ export class DataServices {
       responseType: 'text'  // como tu backend devuelve un String
     });
   }
+  
+
+  prueba(){
+    return this.http.get<any>('http://localhost:8080/api/registros/prueba')
+    
+  }
 }
