@@ -1,26 +1,46 @@
-import { isPlatformBrowser } from '@angular/common';
-import { HttpInterceptorFn } from '@angular/common/http';
-import { inject, PLATFORM_ID } from '@angular/core';
+import { HttpInterceptorFn, HttpErrorResponse } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { catchError, switchMap, throwError } from 'rxjs';
 import { AuthService } from '../../features/auth/services/auth.service';
 
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
-  
-  
-  const authService = inject (AuthService)
+  const authService = inject(AuthService);
+  const accessToken = authService.getToken();
 
+  // No añadir token en las rutas públicas (login, refresh, register, etc.)
+  const isPublic = ['/api/auth', '/api/public'].some(url => req.url.includes(url));
+  if (isPublic) return next(req);
 
-    const accessToken = authService.getToken();
-    console.log(accessToken)
-  if(req.url.startsWith("http://localhost:8080/api/auth")){
-    return next(req);
-  }else{
-    const newReq = req.clone({
-    setHeaders:{
-      Authorization:`Bearer ${accessToken}`
-    }
-  })
-  return next(newReq)
-  }
-  
-  
+  // Si hay token, lo agregamos al header
+  const newReq = accessToken
+    ? req.clone({
+        setHeaders: { Authorization: `Bearer ${accessToken}` }
+      })
+    : req;
+
+  return next(newReq).pipe(
+    catchError((error: HttpErrorResponse) => {
+      // Si el token expiró o no es válido
+      if (error.status === 403 && authService.getRefreshToken()) {
+        // MUY IMPORTANTE → retornar el observable del refresh
+        return authService.refreshAccessToken().pipe(
+          switchMap((newTokens) => {
+            const retryReq = req.clone({
+              setHeaders: { Authorization: `Bearer ${newTokens.accessToken}` }
+            });
+            // Reintentamos la petición original con el nuevo token
+            return next(retryReq);
+          }),
+          catchError((refreshError) => {
+            authService.logout();
+            return throwError(() => refreshError);
+          })
+        );
+      }
+      authService.logout()
+
+      // Si no es un error de autenticación, lo propagamos
+      return throwError(() => error);
+    })
+  );
 };
