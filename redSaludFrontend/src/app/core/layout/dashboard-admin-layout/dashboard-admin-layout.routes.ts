@@ -9,6 +9,7 @@ export const DASHBOARD_ADMIN_LAYOUT_RUTES: Routes = [
         path: '',
         component: DashboardAdminLayout,
         canActivate:[authGuard],
+        data: {roles:['SUPER_ADMIN']},
         children: [
             { path: '', component: Admin },
             { path: 'cargarData', component: CargarData }

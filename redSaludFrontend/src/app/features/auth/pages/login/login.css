@@ -79,7 +79,7 @@ input[type="email"],
 input[type="password"]{
   padding:12px 14px;
   border-radius: 10px;
-  border:1px solid #e6e9ef;
+  border:1px solid #0e4cc9;
   font-size:15px;
   outline:none;
   transition: box-shadow .15s, border-color .15s, transform .06s;
@@ -93,15 +93,15 @@ input:focus{
   transform: translateY(-1px);
 }
 
-/* Opciones checkbox y forgot */
-.options{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-  color:blue;
+input.invalid {
+  border-color: #e73cd0;
 }
+
+.error-text {
+  color: #e74c3c;
+  font-size: 0.8rem;
+}
+
 
 /* Enlace olvidar contraseña */
 .forgot{
@@ -136,6 +136,29 @@ input:focus{
   background:transparent;
   border-color:#e6e9ef;
 }
+.btn.primary:disabled {
+  background: #9bbcf5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ff1900;
+  font-weight:bolder ;
+  background: #fbeaea;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.success-message {
+  color: #2ecc71;
+  background: #e8f9ee;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
 
 /* Divider visual */
 .divider{
@@ -175,16 +198,14 @@ input:focus{
 }
 
 /* Foco accesible */
-input:focus, .btn:focus, a:focus { outline: 3px solid rgba(79,70,229,0.12); outline-offset:3px; }
+input:focus, .btn:focus, a:focus { outline: 3px solid rgb(18, 8, 201); outline-offset:3px; }
 
 /* Mensajes de validación simples (estilos para :invalid) */
 input:invalid {
   box-shadow: none;
   border-color: #f87171;
 }
-input:required:valid { /* sutil borde verde si todo ok */
-  box-shadow: 0 6px 20px rgba(16,185,129,0.06);
-}
+
 
 /* --- Media queries para tablets y desktop --- */
 @media (min-width: 860px) {

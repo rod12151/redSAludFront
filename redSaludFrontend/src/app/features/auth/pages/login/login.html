@@ -1,5 +1,5 @@
 <div class="body">
-<main class="page">
+  <main class="page">
     <!-- Tarjeta de login -->
     <section class="auth-card" aria-labelledby="login-title">
       <!-- Logo / título -->
@@ -10,49 +10,54 @@
       </header>
 
       <!-- Form -->
-      <form [formGroup]="loginForm" class="login-form"  >
+      <form [formGroup]="loginForm" class="login-form">
         <!-- Email -->
         <label class="field">
           <span class="label-text">Correo electrónico</span>
-          <input 
-          formControlName="username"
-            type="text"
-            name="username"
-            placeholder="tucorreo@ejemplo.com"
-            required
-            autocomplete="username"
-            inputmode="username"
-          />
+          <input formControlName="username" type="email" name="username" placeholder="tucorreo@ejemplo.com" required
+            autocomplete="username" [class.invalid]="username.invalid && username.touched" />
+          @if (username.invalid && username.touched) {
+          <small class="error-text">ingrese un correo valido</small>
+          }
+
         </label>
 
         <!-- Contraseña -->
         <label class="field">
           <span class="label-text">Contraseña</span>
-          <input
-          formControlName="password"
-            type="password"
-            name="password"
-            placeholder="••••••••"
-            minlength="6"
-            required
-            autocomplete="current-password"
-          />
+          <input formControlName="password" type="password" name="password" placeholder="••••••••" minlength="6"
+            required autocomplete="current-password" [class.invalid]="password.invalid && password.touched" />
+          @if (password.invalid && password.touched) {
+          <small class="error-text"> La contraseña no puede estar vacio</small>
+          }
         </label>
 
         <!-- Opciones -->
         <div class="options">
-          
+
           <a class="forgot" href="#" aria-label="Olvidé mi contraseña">¿Olvidaste tu contraseña?</a>
         </div>
 
         <!-- Submit -->
-        <button class="btn primary" type="button" (click)=onLogin()>Entrar</button>
+        <button class="btn primary" type="button" [disabled]="!loginForm.valid" (click)=onLogin()>Entrar</button>
+
 
         <!-- Divider -->
         <div class="divider"><span></span></div>
+        @if (messageError()) {
+        <div class="error-message">
+          {{ messageError() }}
+        </div>
+        }
+        @if (messageSucces()) {
+        <div class="success-message">
+          {{ messageSucces() }}
+        </div>
+        }
 
-        <!-- Social (simples botones visuales, sin integración) -->
-      
+
+
+
       </form>
 
       <!-- Pie -->
@@ -68,6 +73,5 @@
         <p>Accede para ver tus proyectos, tareas y estadísticas en un solo lugar.</p>
       </div>
     </aside>
-</main>
+  </main>
 </div>
-

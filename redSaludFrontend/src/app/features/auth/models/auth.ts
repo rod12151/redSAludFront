@@ -7,4 +7,10 @@ export interface TokenResponse{
     refreshToken:string,
     username:string
     
+} export interface rolesResponse{
+    superAdmin:boolean,
+    admin:boolean,
+    user:boolean,
+    invited:boolean,
+    
 }

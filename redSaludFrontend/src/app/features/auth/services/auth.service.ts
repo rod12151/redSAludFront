@@ -1,9 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { computed, inject, Injectable, PLATFORM_ID, signal } from '@angular/core';
-import { LoginRequest, TokenResponse } from '../models/auth';
+import { LoginRequest, rolesResponse, TokenResponse } from '../models/auth';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode'
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,12 @@ export class AuthService {
   //signals para estados reactivos
   private readonly tokenSignal = signal<string | null>(null);
   private readonly userSignal = signal<string | null>(null);
-  private readonly rolesSignal = signal<string | null>(null);
+  private readonly rolesSignal = signal<rolesResponse>({
+    superAdmin: false,
+    admin: false,
+    user: false,
+    invited: false
+  });
   private readonly refreshTokenSignal = signal<string | null>(null);
 
   //Computed signals para lógica derivada
@@ -46,7 +52,7 @@ export class AuthService {
       if (token) this.tokenSignal.set(token);
       if (refreshToken) this.refreshTokenSignal.set(refreshToken);
       if (user) this.userSignal.set(user);
-      if (roles) this.rolesSignal.set(roles);
+      if (roles)  this.rolesSignal.set(JSON.parse(roles));
 
     }
   }
@@ -61,19 +67,7 @@ export class AuthService {
       catchError(this.handleError)
     );
   }
-  /**
-     * Guarda el token y actualiza el signal
-     */
-  loginUser(jwt: TokenResponse): void {
-    if (isPlatformBrowser(this.plataformId)) {
-      localStorage.setItem('token', jwt.accessToken);
-      localStorage.setItem('refreshToken', jwt.refreshToken);
-      this.tokenSignal.set(jwt.accessToken);
-      this.refreshTokenSignal.set(jwt.refreshToken);
-      this.setUser(jwt.username);
-
-    }
-  }
+ 
   /**
    * refresca el token de acceso usando el refreshtoken
    */
@@ -87,10 +81,7 @@ export class AuthService {
     }
     return this.http.post<TokenResponse>(`${this.authUrl}/refresh-token`, { refreshToken }).pipe(
       tap((jwt:TokenResponse) => {
-        localStorage.setItem('token', jwt.accessToken);
-        localStorage.setItem('refreshToken', jwt.refreshToken);
-        this.tokenSignal.set(jwt.accessToken);
-      this.refreshTokenSignal.set(jwt.refreshToken);
+       this.loginUser(jwt)
       }),
       catchError(error=>{
         this.logout();
@@ -98,6 +89,27 @@ export class AuthService {
         return this.handleError(error)
       })
     )
+  }
+   /**
+     * Guarda el token y actualiza el signal
+     */
+  loginUser(jwt: TokenResponse): void {
+    
+    if (isPlatformBrowser(this.plataformId)) {
+      const roles:rolesResponse=this.buildRoles(jwt.accessToken)
+      localStorage.setItem('token', jwt.accessToken);
+      localStorage.setItem('refreshToken', jwt.refreshToken);
+      this.tokenSignal.set(jwt.accessToken);
+      this.refreshTokenSignal.set(jwt.refreshToken);
+      this.setUser(jwt.username);
+      localStorage.setItem('roles', JSON.stringify(roles));
+      console.log("antes")
+      console.log(this.rolesSignal())
+      this.rolesSignal.set(roles);
+      console.log("despues")
+      console.log(this.rolesSignal())
+
+    }
   }
 
   
@@ -109,7 +121,7 @@ onLogout():Observable<any>{
   const refreshToken = this.getRefreshToken();
     if (!refreshToken) {
       
-      this.route.navigateByUrl('')
+      this.route.navigateByUrl('/')
       return throwError(() => 'no hay refresh token disponible');
       
     }
@@ -128,8 +140,13 @@ onLogout():Observable<any>{
       this.tokenSignal.set(null);
       this.refreshTokenSignal.set(null)
       this.userSignal.set(null);
-      this.rolesSignal.set(null);
-      this.route.navigateByUrl('')
+      this.rolesSignal.set({
+    superAdmin: false,
+    admin: false,
+    user: false,
+    invited: false
+  });
+      this.route.navigateByUrl('/')
 
       return true;
     }
@@ -177,9 +194,9 @@ onLogout():Observable<any>{
   /**
    * Guarda los roles y actualiza el signal
    */
-  setRole(roles: string): void {
+  setRole(roles: rolesResponse): void {
     if (isPlatformBrowser(this.plataformId)) {
-      localStorage.setItem('roles', roles);
+      localStorage.setItem('roles', JSON.stringify(roles));
       this.rolesSignal.set(roles);
     }
   }
@@ -187,11 +204,17 @@ onLogout():Observable<any>{
   /**
    * Obtiene los roles actuales
    */
-  getRole(): string | null {
+  getRole(): rolesResponse  {
     if (isPlatformBrowser(this.plataformId)) {
       return this.rolesSignal();
     }
-    return null
+    console.log("no encontró valores en el get")
+    return {
+    superAdmin: false,
+    admin: false,
+    user: false,
+    invited: false
+  }
   }
 
   /**
@@ -202,6 +225,31 @@ onLogout():Observable<any>{
     console.error(`Error ${error.status}:`, error.error);
     return throwError(() => message);
   }
+
+
+  //extarer Claims del tokem
+  
+  private decodeToken(token:string):any{
+    if(!token)return null;
+    try {
+      return jwtDecode(token)
+    }catch (error){
+      console.error('error al decodificar el token', error)
+      return null
+    }
+  }
+
+  private buildRoles(token:string):rolesResponse{
+    const claims = this.decodeToken(token)
+    const roles:rolesResponse = {
+      admin:claims.ADMIN,
+      superAdmin:claims.SUPERADMIN,
+      user:claims.USER,
+      invited:claims.INVITED}
+    return roles
+  }
+
+  
 
 
 
