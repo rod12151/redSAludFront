@@ -1,0 +1,32 @@
+<table class="tabla-usuarios">
+  <thead>
+    <tr>
+      <th>DNI</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Puesto</th>
+      <th>Rol</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (usuario of usuarioService.usuarios(); track usuario.id) {
+      <tr>
+        <td>{{ usuario.dni }}</td>
+        <td>{{ usuario.name }} {{ usuario.lastName }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.puesto.nombre }}</td>
+        <td>{{ usuario.roles[0].nombre }}</td>
+        <td>
+          <button class="btn-editar" (click)="editar.emit(usuario)">Editar</button>
+          <button class="btn-eliminar" (click)="eliminar(usuario.id!)">Eliminar</button>
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="6" class="no-data">No hay usuarios registrados</td>
+      </tr>
+    }
+  </tbody>
+</table>
+

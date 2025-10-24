@@ -1,0 +1,33 @@
+<div class="usuarios-container">
+  <h2 class="title">Gestión de Usuarios</h2>
+
+
+  <div class="usuarios">
+    @if (mostrarPanel()) {
+    <div class="actionUser">
+      @switch (modo()) {
+        @case ('crear') {
+          <app-usuario-create-component (cancelar)="volverLista()"
+          (guardado)="volverLista()"></app-usuario-create-component>
+          }
+          @case ('editar') {
+            @if (usuarioSeleccionado()) {
+              <app-usuario-edit-component [usuario]="usuarioSeleccionado()!" 
+              (cancelar)="volverLista()" (actualizado)="volverLista()"></app-usuario-edit-component>
+              }
+            }
+          }
+    </div>
+    }
+
+
+    <div class="listUser">
+
+      <button class="btn-primary" (click)="nuevoUsuario()">NUEVO USUARIO</button>
+
+      <app-usuario-list-component (editar)="editarUsuario($event)"></app-usuario-list-component>
+
+    </div>
+    
+    </div>
+  </div>

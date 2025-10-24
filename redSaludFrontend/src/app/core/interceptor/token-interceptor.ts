@@ -37,7 +37,6 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
           })
         );
       }
-      authService.logout()
 
       // Si no es un error de autenticación, lo propagamos
       return throwError(() => error);

@@ -1,0 +1,36 @@
+<h3>Editar Usuario</h3>
+
+<form (ngSubmit)="actualizar()">
+  <label>DNI</label>
+  <input type="text" [(ngModel)]="usuario.dni" name="dni" required />
+
+  <label>Nombre</label>
+  <input type="text" [(ngModel)]="usuario.name" name="name" required />
+
+  <label>Apellido</label>
+  <input type="text" [(ngModel)]="usuario.lastName" name="lastName" required />
+
+  <label>Email</label>
+  <input type="email" [(ngModel)]="usuario.email" name="email" required />
+
+  <label>Puesto</label>
+  <select [(ngModel)]="usuario.puesto.nombre" name="puesto">
+    <option value="1">digitador</option>
+    <option value="2">Asistente</option>
+    <option value="3">Técnico</option>
+  </select>
+
+  <label>Rol</label>
+  <select [(ngModel)]="usuario.roles[0]" name="roles">
+    @for (item of rolesDisponibles; track item.id) {
+      <option [ngValue]="item">{{ item.nombre }}</option>
+    }
+    
+  </select>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <button type="button" class="btn" (click)="cancelar.emit()">Cancelar</button>
+  </div>
+</form>
+

@@ -1,0 +1,36 @@
+<h3>Crear Usuario</h3>
+
+<form (ngSubmit)="guardar()">
+  <label>DNI</label>
+  <input type="text" [(ngModel)]="usuario.dni" name="dni" required />
+
+  <label>Nombre</label>
+  <input type="text" [(ngModel)]="usuario.name" name="name" required />
+
+  <label>Apellido</label>
+  <input type="text" [(ngModel)]="usuario.lastName" name="lastname" required />
+
+  <label>Email</label>
+  <input type="email" [(ngModel)]="usuario.email" name="email" required />
+
+  <label>Puesto</label>
+  <select [(ngModel)]="usuario.idPuesto" name="idPuesto">
+    <option value="1">digitador</option>
+    <option value="2">Asistente</option>
+    <option value="3">Técnico</option>
+  </select>
+
+  <label>Rol</label>
+  <select [(ngModel)]="usuario.idRole" name="idRole">
+    <option value="4">INVITED</option>
+    <option value="3">USER</option>
+    <option value="2">ADMIN</option>
+    <option value="1">SUPERADMIN</option>
+  </select>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn" (click)="cancelar.emit()">Cancelar</button>
+  </div>
+</form>
+
