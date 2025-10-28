@@ -14,9 +14,14 @@ import { Atenciones } from '../../../features/dashboard/pages/atenciones/atencio
 import { Inconcistencias } from '../../../features/dashboard/pages/inconcistencias/inconcistencias';
 import { Catalogos } from '../../../features/dashboard/pages/catalogos/catalogos';
 import { Mortalidad } from '../../../features/dashboard/pages/mortalidad/mortalidad';
+import { authGuard } from '../../guards/auth-guard';
 
 export const DASHBOARD_ESTADISTICA_LAYOUT_RUTES:Routes = [
-    {path:'', component:DashboardEstadisticaLayout, children:[
+    {path:'', component:DashboardEstadisticaLayout,
+        canActivate:[authGuard],
+        data:{roles:['SUPER_ADMIN','ADMIN']},
+        
+        children:[
 
         {path:'',component:Dashboard},
         {path:'barrido_SBR',component:BarridoSBR},

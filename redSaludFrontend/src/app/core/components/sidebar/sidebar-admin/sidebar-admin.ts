@@ -24,8 +24,8 @@ export class SidebarAdmin {
   },
    {
     icon:faFileExcel,
-    label:'Cargar Excel',
-    ruta:'/admin/cargarData'
+    label:'crear usuario',
+    ruta:'/admin/usuario'
   },
    {
     icon:faFileExcel,

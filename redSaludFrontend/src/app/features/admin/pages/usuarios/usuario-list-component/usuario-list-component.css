@@ -1,0 +1,135 @@
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.tabla-usuarios thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+}
+
+.tabla-usuarios thead tr th {
+  padding: 16px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tabla-usuarios tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background-color 0.2s ease;
+}
+
+.tabla-usuarios tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.tabla-usuarios tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tabla-usuarios tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.tabla-usuarios tbody td:first-child {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+/* Mensaje cuando no hay datos */
+.no-data {
+  text-align: center;
+  padding: 40px 20px !important;
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 15px;
+}
+
+/* Botones de acción */
+.tabla-usuarios td button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+}
+button{
+  width: 100px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.btn-editar {
+  background: #42A5F5;
+    background: linear-gradient(90deg, rgba(66, 165, 245, 1) 0%, rgba(46, 196, 182, 1) 100%);
+    color: white;
+    cursor: pointer;
+}
+
+.btn-editar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn-eliminar {
+  background: linear-gradient(90deg, rgb(245, 66, 66) 0%, rgb(235, 175, 48) 100%);
+  color: white;
+}
+
+.btn-eliminar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+.btn-editar:active,
+.btn-eliminar:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tabla-usuarios {
+    font-size: 12px;
+  }
+  
+  .tabla-usuarios thead tr th,
+  .tabla-usuarios tbody td {
+    padding: 10px 12px;
+  }
+  
+  .tabla-usuarios td button {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 576px) {
+  .tabla-usuarios thead tr th:nth-child(3),
+  .tabla-usuarios tbody td:nth-child(3) {
+    display: none;
+  }
+  .tabla-usuarios thead tr th:nth-child(1),
+  .tabla-usuarios tbody td:nth-child(1) {
+    display: none;
+  }
+  .tabla-usuarios td button {
+    display: block;
+    margin: 2px 0;
+    width: 100%;
+  }
+}

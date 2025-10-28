@@ -1,0 +1,83 @@
+<h3>Crear Usuario</h3>
+
+
+
+<form [formGroup]="createUserForm">
+   <div class="form_campos">
+    <div>
+      <label class="field">
+      <span class="label-text">DNI</span>
+        <input formControlName="dni" type="text" required name="dni" [class.ivalid]="dni.invalid && dni.touched" />
+        @if (dni.invalid && dni.touched) {
+          <small class="error-text">ingrese un dni valido</small>
+          }
+        </label>
+      <label class="field">
+      <span class="label-text">Nombre</span>
+        <input formControlName="name" type="text" required [class.ivalid]="name.invalid && name.touched"/>
+        @if (name.invalid && name.touched) {
+          <small class="error-text">ingrese el nombre</small>
+          }
+      </label>
+    </div>
+    <div>
+      <label class="field">
+      <span class="label-text">Apellidos</span>
+        <input formControlName="lastName" type="text" required [class.ivalid]="lastName.invalid && lastName.touched"/>
+
+        @if (lastName.invalid && lastName.touched) {
+          <small class="error-text">ingrese el apellido</small>
+          }
+</label>
+      <label class="field">
+      <span class="label-text">Email</span>
+        <input formControlName="email" type="email" required  [class.ivalid]="email.invalid && email.touched"/>
+        @if (email.invalid && email.touched) {
+          <small class="error-text">ingrese un correo valido</small>
+          }
+      </label>
+    </div>
+    <div>
+      <label class="field">
+      <span class="label-text">Puesto</span>
+        <select formControlName="idPuesto" required [class.ivalid]="idPuesto.invalid && idPuesto.touched">
+        <option value="1">digitador</option>
+        <option value="2">Asistente</option>
+        <option value="3">Técnico</option>
+      </select>
+      @if (idPuesto.invalid && idPuesto.touched) {
+          <small class="error-text">seleccione un puesto</small>
+          }
+      </label>
+
+      <label class="field">
+      <span class="label-text">Rol</span>
+        <select formControlName="idRole"  required [class.ivalid]="idRole.invalid && idRole.touched">
+        <option value="4">INVITED</option>
+        <option value="3">USER</option>
+        <option value="2">ADMIN</option>
+        <option value="1">SUPERADMIN</option>
+      </select>
+      @if (idRole.invalid && idRole.touched) {
+          <small class="error-text">seleccione un rol</small>
+          }
+      </label>
+    </div>
+
+  </div>
+  @if (messageError()) {
+        <div class="error-message">
+          {{ messageError() }}
+        </div>
+        }
+        @if (messageSucces()) {
+        <div class="success-message">
+          {{ messageSucces() }}
+        </div>}
+
+  <div class="form-actions">
+    <button type="button" class="btn btn-primary" (click)="saveUser()"  [disabled]="!createUserForm.valid">Guardar</button>
+    <button type="button" class="btn btn-cancelar" (click)="cancelar.emit()">Cancelar</button>
+  </div>
+
+</form>

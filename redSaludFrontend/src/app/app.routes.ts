@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { Login } from './features/auth/pages/login/login';
 
 export const routes: Routes = [
 
@@ -20,6 +21,10 @@ export const routes: Routes = [
         .then(m=>m.DASHBOARD_ADMIN_LAYOUT_RUTES)
 
     },
+    {
+        path:'login',
+        component:Login
+    }
     
 
 

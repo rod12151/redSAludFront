@@ -2,11 +2,19 @@ import { Routes } from '@angular/router';
 import { DashboardAdminLayout } from './dashboard-admin-layout';
 import { Admin } from '../../../features/admin/admin';
 import { CargarData } from '../../../features/admin/pages/cargar-data/cargar-data';
+import { authGuard } from '../../guards/auth-guard';
+import { UsuarioComponent } from '../../../features/admin/pages/usuarios/usuario';
 
-export const DASHBOARD_ADMIN_LAYOUT_RUTES:Routes = [
-    {path:'', component:DashboardAdminLayout, children:[
-        {path:'',component:Admin},
-        {path:'cargarData',component:CargarData}
-        
-        
-    ]},]
+export const DASHBOARD_ADMIN_LAYOUT_RUTES: Routes = [
+    {
+        path: '',
+        component: DashboardAdminLayout,
+        canActivate:[authGuard],
+        data: {roles:['SUPER_ADMIN']},
+        children: [
+            { path: '', component: Admin },
+            { path: 'cargarData', component: CargarData },
+            {path: 'usuario', component:UsuarioComponent}
+        ]
+    }
+    ,]

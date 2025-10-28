@@ -1,0 +1,262 @@
+
+.body{
+  margin:24PX;
+  background: linear-gradient(180deg, #f6f8fb, #eef2ff 100%);
+  color: #0f172a;
+  font-size:16px;
+  line-height:1.4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.page {
+  width:100%;
+  max-width:1100px;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:24px;
+  align-items:center;
+}
+
+/* Tarjeta de autenticación */
+.auth-card{
+  background:#ffffff;
+  border-radius: 14px;
+  box-shadow:0 8px 30px rgba(15,23,42,0.08);
+  padding:20px;
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* Header de la tarjeta */
+.auth-header{
+  text-align:center;
+}
+.logo{
+  display:inline-block;
+  font-weight:700;
+  color: #4f46e5;
+  background: linear-gradient(90deg, #4f46e5,#06b6d4);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  font-size:20px;
+  letter-spacing:0.4px;
+}
+.title{
+  margin:6px 0 0;
+  font-size:22px;
+}
+.subtitle{
+  margin:6px 0 0;
+  color:#6b7280;;
+  font-size:14px;
+}
+
+/* Formulario */
+.login-form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.label-text{
+  font-size:13px;
+  color:blue;
+}
+
+/* Inputs */
+input[type="email"],
+input[type="password"]{
+  padding:12px 14px;
+  border-radius: 10px;
+  border:1px solid #0e4cc9;
+  font-size:15px;
+  outline:none;
+  transition: box-shadow .15s, border-color .15s, transform .06s;
+  background: #fff;
+}
+input::placeholder{ color:#9aa3b2; font-size:14px; }
+
+input:focus{
+  border-color: rgba(79,70,229,0.9);
+  box-shadow: 0 6px 20px rgba(79,70,229,0.08);
+  transform: translateY(-1px);
+}
+
+input.invalid {
+  border-color: #e73cd0;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 0.8rem;
+}
+
+
+/* Enlace olvidar contraseña */
+.forgot{
+  color:blue;
+  text-decoration:none;
+  font-size:14px;
+}
+.forgot:hover{
+  text-decoration:underline;
+}
+
+/* Botones */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:11px 14px;
+  border-radius:12px;
+  border:1px solid transparent;
+  font-weight:600;
+  cursor:pointer;
+  font-size:15px;
+}
+.btn.primary{
+  background: linear-gradient(90deg, #4f46e5,#06b6d4);
+  color:white;
+  box-shadow: 0 8px 24px rgba(79,70,229,0.12);
+}
+.btn.primary:active{ transform: translateY(1px); }
+.btn.social{
+  background:transparent;
+  border-color:#e6e9ef;
+}
+.btn.primary:disabled {
+  background: #9bbcf5;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ff1900;
+  font-weight:bolder ;
+  background: #fbeaea;
+  padding: 0.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.success-message {
+  color: #2ecc71;
+  background: #e8f9ee;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+/* Divider visual */
+.divider{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:6px 0;
+}
+.divider::before,
+.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:#eef2f8;
+}
+.divider span{
+  color:blue;
+  font-size:13px;
+}
+
+/* Socials vertical en móvil */
+
+
+/* Footer */
+.auth-footer{
+  text-align:center;
+  font-size:14px;
+  color:blue;
+}
+.auth-footer a{ color: #4f46e5; text-decoration:none; font-weight:600; }
+.auth-footer a:hover{ text-decoration:underline; }
+
+/* Hero/Ilustración lateral (oculta en pantallas pequeñas) */
+.hero{
+  display:none;
+  
+}
+
+/* Foco accesible */
+input:focus, .btn:focus, a:focus { outline: 3px solid rgb(18, 8, 201); outline-offset:3px; }
+
+/* Mensajes de validación simples (estilos para :invalid) */
+input:invalid {
+  box-shadow: none;
+  border-color: #f87171;
+}
+
+
+/* --- Media queries para tablets y desktop --- */
+@media (min-width: 860px) {
+  .page {
+    grid-template-columns: 1fr 420px; /* hero a la derecha */
+    align-items:stretch;
+    gap:32px;
+  }
+
+  .auth-card{
+    max-width:600px;
+    padding:28px;
+    border-radius:18px;
+  }
+
+  .hero{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 8px 30px rgba(15,23,42,0.08);
+  }
+
+  .hero-inner{
+    text-align:left;
+    max-width:380px;
+  }
+  .hero h2{
+    margin:0 0 8px;
+    font-size:22px;
+  }
+  .hero p{
+    margin:0;
+    color:blue;
+    font-size:15px;
+  }
+
+ 
+}
+
+/* Si la pantalla es muy ancha mostrar hero a la izquierda (opcional) */
+@media (min-width: 1200px) {
+  .page { max-width: 1300px; grid-template-columns: 1fr 480px; }
+  .hero-inner h2 { font-size:26px; }
+}
+
+/* Pequeños ajustes para muy pantallas pequeñas */
+@media (max-width: 420px) {
+  body{ padding:16px; }
+  .auth-card{ padding:16px; }
+  .title{ font-size:20px; }
+}
