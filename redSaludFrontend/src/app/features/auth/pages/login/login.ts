@@ -65,9 +65,9 @@ export class Login {
  }, 800);
       },
       error: (error) => {
-        console.log("gil")
         console.log(error)
-          this.messageError.set(error)
+        this.password.reset()
+        this.messageError.set(error)
         this.isLoading = false;
       },
       complete:()=>{

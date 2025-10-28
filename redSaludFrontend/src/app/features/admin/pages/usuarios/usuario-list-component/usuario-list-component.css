@@ -119,14 +119,17 @@ button{
 }
 
 @media (max-width: 576px) {
+  .tabla-usuarios thead tr th:nth-child(3),
+  .tabla-usuarios tbody td:nth-child(3) {
+    display: none;
+  }
   .tabla-usuarios thead tr th:nth-child(1),
   .tabla-usuarios tbody td:nth-child(1) {
     display: none;
   }
-  
   .tabla-usuarios td button {
     display: block;
-    margin: 4px 0;
+    margin: 2px 0;
     width: 100%;
   }
 }
