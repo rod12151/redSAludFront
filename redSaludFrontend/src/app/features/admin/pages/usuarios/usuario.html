@@ -4,7 +4,7 @@
 
   <div class="usuarios">
     @if (mostrarPanel()) {
-    <div class="actionUser">
+    <div class="actionUser" >
       @switch (modo()) {
         @case ('crear') {
           <app-usuario-create-component (cancelar)="volverLista()"
@@ -21,7 +21,7 @@
     }
 
 
-    <div class="listUser">
+    <div class="listUser" >
 
       <button class="btn-primary" (click)="nuevoUsuario()">NUEVO USUARIO</button>
 
