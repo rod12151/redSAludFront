@@ -3,26 +3,14 @@
     flex-direction: column;
     height: auto;
     width: auto;
-
-
 }
 
 .title {
     text-align: center;
-    font-size: 50px;
-    color:black;
+    font-size: 40px;
+    color: black;
     font-weight: bold;
-
 }
-
-.usuarios {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    width: auto;
-}
-
 .btn-primary {
     background: #42A5F5;
     background: linear-gradient(90deg, rgba(66, 165, 245, 1) 0%, rgba(46, 196, 182, 1) 100%);
@@ -34,6 +22,7 @@
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
 }
+

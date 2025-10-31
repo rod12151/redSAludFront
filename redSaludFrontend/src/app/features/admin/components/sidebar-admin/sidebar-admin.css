@@ -10,6 +10,7 @@
     height: 100vh;
     width: 250px;
 }
+
 .linea{
     height: 2px;
     width: 100%;
@@ -78,6 +79,7 @@
 .sidebar-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
 }
 

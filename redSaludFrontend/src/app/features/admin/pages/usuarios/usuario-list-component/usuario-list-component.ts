@@ -10,7 +10,7 @@ import { UsuarioService } from '../../../services/usuario-service';
 })
 export class UsuarioListComponent {
   @Output() editar = new EventEmitter<UsuarioResponse>();
-
+  
   constructor(public usuarioService: UsuarioService) {}
 
   eliminar(id: number) {

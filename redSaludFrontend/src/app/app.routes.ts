@@ -17,7 +17,7 @@ export const routes: Routes = [
     },
     {
         path:'admin',
-        loadChildren:() => import('./core/layout/dashboard-admin-layout/dashboard-admin-layout.routes')
+        loadChildren:() => import('./features/admin/dashboard-admin-layout.routes')
         .then(m=>m.DASHBOARD_ADMIN_LAYOUT_RUTES)
 
     },

@@ -31,8 +31,7 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
             // Reintentamos la petición original con el nuevo token
             return next(retryReq);
           }),
-          catchError((refreshError) => {
-            authService.logout();
+          catchError((refreshError) => {            
             return throwError(() => refreshError);
           })
         );

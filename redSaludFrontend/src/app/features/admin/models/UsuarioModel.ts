@@ -12,7 +12,7 @@ export interface UsuarioResponse {
     dni: string;
     name: string;
     lastName: string;
-    email: string;
+    username: string;
     puesto: puesto;
     roles: rol[];
 }

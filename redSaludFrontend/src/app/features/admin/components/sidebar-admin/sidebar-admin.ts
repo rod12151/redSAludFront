@@ -1,7 +1,9 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
+import { faUserAlt,faUpload, faUsers,faBriefcase} from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { UsuarioService } from '../../services/usuario-service';
+import { AuthService } from '../../../auth/services/auth.service';
 interface MenuItem {
   icon: any;
   label: string;
@@ -14,26 +16,24 @@ interface MenuItem {
   styleUrl: './sidebar-admin.css'
 })
 export class SidebarAdmin {
+  user =inject(AuthService)
   isCollapsed = input<boolean>(false);
   isMobile = input<boolean>(false);
+  iconPerfil=faUserAlt
  menuItems: MenuItem[] = [
-  {
-    icon:faFileExcel,
-    label:'Cargar Excel',
-    ruta:'/admin/cargarData'
-  },
+  
    {
-    icon:faFileExcel,
-    label:'crear usuario',
+    icon:faUsers,
+    label:'Administrar Usuarios',
     ruta:'/admin/usuario'
   },
    {
-    icon:faFileExcel,
-    label:'Cargar Excel',
-    ruta:'/admin/cargarData'
+    icon:faBriefcase,
+    label:'Administrar Puestos',
+    ruta:'/admin/puesto'
   }, {
-    icon:faFileExcel,
-    label:'Cargar Excel',
+    icon:faUpload,
+    label:'Cargar Datos',
     ruta:'/admin/cargarData'
   }
  ]

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DashboardService } from '../../services/dashboard-estadistica-service';
-import { HeaderAdmin } from "../../components/header/header-admin/header-admin";
-import { SidebarAdmin } from "../../components/sidebar/sidebar-admin/sidebar-admin";
+import { DashboardService } from '../../../../core/services/dashboard-estadistica-service';
+import { HeaderAdmin } from '../header-admin/header-admin';
+import { SidebarAdmin } from '../sidebar-admin/sidebar-admin';
 @Component({
   selector: 'app-dashboard-admin-layout',
   imports: [RouterOutlet, HeaderAdmin, SidebarAdmin],

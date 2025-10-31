@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
    private apiUrl = 'http://localhost:8080/api/usuario';
-  usuarios = signal<UsuarioResponse[]>([]);
+  private usuarios = signal<UsuarioResponse[]>([]);
 
   constructor(private http: HttpClient) {}
 
@@ -30,6 +30,9 @@ export class UsuarioService {
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.put<void>(`${this.apiUrl}/estado/${id}`,null);
+  }
+  getUsuarios(){
+    return this.usuarios()
   }
 }

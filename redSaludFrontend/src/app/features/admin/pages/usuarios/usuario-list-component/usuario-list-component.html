@@ -10,13 +10,13 @@
     </tr>
   </thead>
   <tbody>
-    @for (usuario of usuarioService.usuarios(); track usuario.id) {
+    @for (usuario of usuarioService.getUsuarios(); track usuario.id) {
       <tr>
-        <td>{{ usuario.dni }}</td>
-        <td>{{ usuario.name }} {{ usuario.lastName }}</td>
-        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.dni}}</td>
+        <td>{{ usuario.name}} {{ usuario.lastName }}</td>
+        <td>{{ usuario.username  }}</td>
         <td>{{ usuario.puesto.nombre }}</td>
-        <td>{{ usuario.roles[0].nombre }}</td>
+        <td>{{ usuario.roles[0].nombre}}</td>
         <td>
           <button class="btn-editar" (click)="editar.emit(usuario)">Editar</button>
           <button class="btn-eliminar" (click)="eliminar(usuario.id!)">Eliminar</button>
