@@ -16,32 +16,32 @@ export class UsuarioEditComponent implements OnChanges {
   @Output() actualizado = new EventEmitter<void>();
   updateUserForm!: FormGroup;
 
-  
+
   messageError = signal<string>("");
   messageSucces = signal<string>("");
-  
+
   constructor(private usuarioService: UsuarioService) {
 
   }
-ngOnChanges(changes: SimpleChanges): void {
-  if(changes['usuario']&& this.usuario){
-    this.initForm();
-  }  
-}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['usuario'] && this.usuario) {
+      this.initForm();
+    }
+  }
 
-private initForm(){
-this.updateUserForm = new FormGroup({
-    dni: new FormControl(this.usuario.dni||'', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
-    name: new FormControl(this.usuario.name||'', [Validators.required]),
-    lastName: new FormControl(this.usuario.lastName||''),
-    username: new FormControl(this.usuario.username||'', [Validators.required, Validators.email]),
-    idPuesto: new FormControl(this.usuario.puesto.id||'', [Validators.required]),
-    idRole: new FormControl(this.usuario.roles[0].id||'',[Validators.required])
-  })
-}
-  
+  private initForm() {
+    this.updateUserForm = new FormGroup({
+      dni: new FormControl(this.usuario.dni || '', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
+      name: new FormControl(this.usuario.name || '', [Validators.required]),
+      lastName: new FormControl(this.usuario.lastName || ''),
+      username: new FormControl(this.usuario.username || '', [Validators.required, Validators.email]),
+      idPuesto: new FormControl(this.usuario.puesto.id || '', [Validators.required]),
+      idRole: new FormControl(this.usuario.roles[0].id || '', [Validators.required])
+    })
+  }
 
-  
+
+
   get dni() {
     return this.updateUserForm.get('dni')!
   }
@@ -62,23 +62,11 @@ this.updateUserForm = new FormGroup({
   }
 
   actualizar() {
-    console.log(this.usuario)
-    const usuarioUpdate:Usuario={
-      dni:this.usuario.dni,
-      email:this.usuario.username,
-      name:this.usuario.name,
-      lastName:this.usuario.lastName,
-      idPuesto:this.usuario.puesto.id,
-      idRole:this.usuario.roles[0].id
 
-    }
-    console.log(usuarioUpdate)
+    const usuarioUpdate = this.updateUserForm.value
+
     this.usuarioService.update(this.usuario.id!, usuarioUpdate).subscribe(() => {
       this.actualizado.emit();
     });
   }
-  saveUser(){
-
-  }
-
 }

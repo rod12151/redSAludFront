@@ -51,6 +51,7 @@ export class UsuarioCreateComponent {
     this.messageError.set("")
     if (this.createUserForm.invalid) {
       this.createUserForm.markAllAsTouched();
+      this.messageError.set("completa todo los campos porfavor")
       return;
     }
     this.usuario = this.createUserForm.value

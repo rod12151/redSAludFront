@@ -1,1 +1,22 @@
-<p>puestos works!</p>
+<div class="puestos-container">
+    <h2 class="title">Gestion de puestos</h2>
+    @if (mostrarPanel()) {
+    <div class="action-user">
+        @switch (modo()) {
+            @case ('crear') {
+                <app-puesto-create (guardado)="volverPuesto()" (cancelar)="noCambios()"></app-puesto-create>
+            }
+            @case ('editar') {
+                <app-puesto-update [puesto]="puestoSeleccionado()!" (cancelar)="noCambios()" (actualizado)="volverPuesto()"></app-puesto-update>
+            }
+        }
+
+    </div>
+    }
+    <div class="listPuesto" [class.active]="mostrarPanel()">
+        <button class="btn-primary" (click)="nuevoPuesto()" (cancel)="noCambios()">NUEVO USUARIO</button>
+        <app-puesto-list (editar)="editarPuesto($event)" ></app-puesto-list>
+
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+<div class="cuerpo">
+    
+<h3>EDITAR USUARIO</h3>
+<form  [formGroup]="updatePuestoForm">
+    <div class="form_campos">
+        <div>
+            <label class="field" >
+                <span class="label-text">Codigo</span>
+                <input formControlName="codigo" type="text" name="codigo">
+                
+
+            </label>
+            <label class="field" >
+                <span class="label-text">nombre</span>
+                <input formControlName="nombre" type="text" name="nombre">
+                
+
+            </label>
+
+        </div>
+
+    </div>
+    <div class="form-actions">
+    <button type="button" class="btn btn-primary" (click)="actualizar()"  >Guardar</button>
+    <button type="button" class="btn btn-cancelar" (click)="cancelado()">Cancelar</button>
+  </div>
+</form>
+
+</div>
+
+
+
