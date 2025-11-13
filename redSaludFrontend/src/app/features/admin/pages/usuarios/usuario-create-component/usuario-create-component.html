@@ -1,7 +1,7 @@
+<div class="cuerpo">
+
+
 <h3>Crear Usuario</h3>
-
-
-
 <form [formGroup]="createUserForm">
   <div class="form_campos">
     <div>
@@ -41,9 +41,9 @@
       <label class="field">
         <span class="label-text">Puesto</span>
         <select formControlName="idPuesto" required [class.ivalid]="idPuesto.invalid && idPuesto.touched">
-          <option value="1">digitador</option>
-          <option value="2">Asistente</option>
-          <option value="3">Técnico</option>
+          @for ( puesto of puestoService.getpuestos(); track $index) {
+          <option [value]="puesto.id">{{puesto.nombre}}</option>
+          }
         </select>
         @if (idPuesto.invalid && idPuesto.touched) {
         <small class="error-text">seleccione un puesto</small>
@@ -52,7 +52,7 @@
 
       <label class="field">
         <span class="label-text">Rol</span>
-        <select formControlName="idRole" required [class.ivalid]="idRole.invalid && idRole.touched">
+        <select formControlName="idRole" required [class.ivalid]="idRole.invalid && idRole.touched" >
           <option value="4">INVITED</option>
           <option value="3">USER</option>
           <option value="2">ADMIN</option>
@@ -82,3 +82,4 @@
   </div>
 
 </form>
+</div>

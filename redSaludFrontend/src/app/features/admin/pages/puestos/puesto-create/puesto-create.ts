@@ -18,7 +18,7 @@ export class PuestoCreate {
   constructor(private puestoService:PuestoService){}
 
   createPuestoForm: FormGroup = new FormGroup({
-    codigo: new FormControl("",[Validators.required]),
+    codigo: new FormControl("",[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
     nombre: new FormControl("",[Validators.required])
   })
   get codigo(){
@@ -29,11 +29,14 @@ export class PuestoCreate {
   }
   guardar() {
     this.messageError.set("")
+    console.log(this.createPuestoForm.value)
     if(this.createPuestoForm.invalid){
       this.createPuestoForm.markAllAsTouched();
+      console.log("algo salio mal enf")
       return
     }
     this.puesto=this.createPuestoForm.value
+    console.log(this.puesto)
     this.puestoService.create(this.puesto).subscribe({
       next:()=>{
         this.messageSucces.set('USUARIO REGISTRADO')
@@ -43,6 +46,7 @@ export class PuestoCreate {
       },
       error: (error) => {
         this.messageError.set(error)
+        console.log(error)
       }
       
     })

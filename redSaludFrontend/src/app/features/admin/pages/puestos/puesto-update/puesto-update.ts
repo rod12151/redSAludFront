@@ -28,7 +28,7 @@ export class PuestoUpdate implements OnChanges {
   }
   private initPuestoForm(){
     this.updatePuestoForm = new FormGroup({
-      codigo: new FormControl(this.puesto().codigo, [Validators.required]),
+      codigo: new FormControl(this.puesto().codigo, [Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
       nombre: new FormControl(this.puesto().nombre,[Validators.required])
     })
   }

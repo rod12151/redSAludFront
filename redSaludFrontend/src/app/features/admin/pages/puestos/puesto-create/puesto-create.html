@@ -17,7 +17,7 @@
       <div>
         <label class="field">
           <span class="label-text">Nombre</span>
-          <input formControlName="codigo" type="text" required name="codigo"
+          <input formControlName="nombre" type="text" required name="nombre"
             [class.ivalid]="nombre?.invalid && nombre?.touched" />
           @if (nombre?.invalid && nombre?.touched) {
           <small class="error-text">ingrese un nombre valido</small>
@@ -36,7 +36,7 @@
       {{ messageSucces() }}
     </div>}
     <div class="form-actions">
-      <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+      <button type="button" class="btn btn-primary" (click)=guardar()>Guardar</button>
       <button type="button" class="btn btn-cancelar" (click)="cancelarGuardado()">Cancelar</button>
     </div>
 

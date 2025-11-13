@@ -3,6 +3,7 @@ import { rol, Usuario, UsuarioResponse } from '../../../models/UsuarioModel';
 import { UsuarioService } from '../../../services/usuario-service';
 import { FormControl, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PuestoService } from '../../../services/puesto-service';
 
 @Component({
   selector: 'app-usuario-edit-component',
@@ -20,7 +21,7 @@ export class UsuarioEditComponent implements OnChanges {
   messageError = signal<string>("");
   messageSucces = signal<string>("");
 
-  constructor(private usuarioService: UsuarioService) {
+  constructor(private usuarioService: UsuarioService,public puestoService:PuestoService) {
 
   }
   ngOnChanges(changes: SimpleChanges): void {

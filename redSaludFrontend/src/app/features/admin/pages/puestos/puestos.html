@@ -1,5 +1,6 @@
+<h2 class="title">Gestion de puestos</h2>
 <div class="puestos-container">
-    <h2 class="title">Gestion de puestos</h2>
+    
     @if (mostrarPanel()) {
     <div class="action-user">
         @switch (modo()) {
@@ -14,7 +15,7 @@
     </div>
     }
     <div class="listPuesto" [class.active]="mostrarPanel()">
-        <button class="btn-primary" (click)="nuevoPuesto()" (cancel)="noCambios()">NUEVO USUARIO</button>
+        <button class="btn-primary" (click)="nuevoPuesto()" (cancel)="noCambios()">NUEVO PUESTO</button>
         <app-puesto-list (editar)="editarPuesto($event)" ></app-puesto-list>
 
     </div>

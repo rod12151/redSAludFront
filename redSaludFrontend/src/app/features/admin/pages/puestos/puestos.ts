@@ -16,10 +16,7 @@ export class Puestos {
   puestoSeleccionado = signal<Puesto|null>(null)
   modo = signal <'crear'| 'editar'|null>(null) 
   constructor(public puesto:PuestoService){
-
   }
-
-
   nuevoPuesto(){
     this.modo.set('crear')
     this.mostrarPanel.set(true)
@@ -33,6 +30,7 @@ export class Puestos {
   }
   volverPuesto(){
     console.log("se guardó o se actualizo")
+    this.puesto.getAll()
     this.modo.set(null)
     this.mostrarPanel.set(false)
   }

@@ -4,6 +4,8 @@ import { UsuarioService } from '../../../services/usuario-service';
 import { FormControl, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { error } from 'node:console';
+import { PuestoService } from '../../../services/puesto-service';
+import { Puesto } from '../../../models/PuestoModel';
 
 @Component({
   selector: 'app-usuario-create-component',
@@ -18,8 +20,10 @@ export class UsuarioCreateComponent {
   messageError = signal<string>("");
   messageSucces = signal<string>("");
   usuario: Usuario = { dni: '', name: '', lastName: '', email: '', idPuesto: 0, idRole: 0 };
-
-  constructor(private usuarioService: UsuarioService) { }
+  
+  constructor(private usuarioService: UsuarioService,public puestoService:PuestoService) { 
+    
+  }
   createUserForm: FormGroup = new FormGroup({
     dni: new FormControl("", [Validators.required, Validators.minLength(8), Validators.maxLength(8)]),
     name: new FormControl("", [Validators.required]),
@@ -77,4 +81,5 @@ export class UsuarioCreateComponent {
       this.guardado.emit();
     });
   }
+
 }
