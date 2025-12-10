@@ -1,3 +1,5 @@
+import { Puesto } from "./PuestoModel";
+
 export interface Usuario {
     id?: number;
     dni: string;
@@ -13,15 +15,11 @@ export interface UsuarioResponse {
     name: string;
     lastName: string;
     username: string;
-    puesto: puesto;
+    puesto: Puesto;
     roles: rol[];
 }
 
 export interface rol{
-    id: number;
-    nombre: string;
-}
-export interface puesto{
     id: number;
     nombre: string;
 }

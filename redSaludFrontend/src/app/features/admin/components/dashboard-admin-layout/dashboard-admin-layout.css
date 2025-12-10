@@ -6,11 +6,16 @@ header{
 }
 aside{
   position: fixed;
-  top: 45px;
+  top: 43px;
+  z-index: 1;
+  
 }
 .content {
+  
   display: flex;
   flex-direction: row;
+
+  top: 43px;
 }
 
 

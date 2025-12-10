@@ -1,0 +1,48 @@
+<div class="cuerpo">
+
+
+  <h3>Crear Puesto</h3>
+  <form [formGroup]="createPuestoForm">
+    <div class="form_camps">
+      <div>
+        <label class="field">
+          <span class="label-text">Codigo</span>
+          <input formControlName="codigo" type="text" required name="codigo"
+            [class.ivalid]="codigo?.invalid && codigo?.touched" />
+          @if (codigo?.invalid && codigo?.touched) {
+          <small class="error-text">ingrese un codigo valido</small>
+          }
+        </label>
+      </div>
+      <div>
+        <label class="field">
+          <span class="label-text">Nombre</span>
+          <input formControlName="nombre" type="text" required name="nombre"
+            [class.ivalid]="nombre?.invalid && nombre?.touched" />
+          @if (nombre?.invalid && nombre?.touched) {
+          <small class="error-text">ingrese un nombre valido</small>
+          }
+        </label>
+      </div>
+
+    </div>
+    @if (messageError()) {
+    <div class="error-message">
+      {{ messageError() }}
+    </div>
+    }
+    @if (messageSucces()) {
+    <div class="success-message">
+      {{ messageSucces() }}
+    </div>}
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary" (click)=guardar()>Guardar</button>
+      <button type="button" class="btn btn-cancelar" (click)="cancelarGuardado()">Cancelar</button>
+    </div>
+
+  </form>
+
+
+
+
+</div>

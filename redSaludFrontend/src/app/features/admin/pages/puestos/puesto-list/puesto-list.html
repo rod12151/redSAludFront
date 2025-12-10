@@ -1,0 +1,26 @@
+<table class="tabla-puestos">
+    <thead>
+        <tr>
+            <th>codigo</th>
+            <th>id</th>
+            <th>nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (puesto of puestoService.getpuestos(); track puesto.id) {
+        <tr>
+            <td>{{ puesto.id }}</td>
+            <td>{{ puesto.codigo }}</td>
+            <td>{{ puesto.nombre }}</td>
+            <button class="btn-editar" (click)="editar.emit(puesto)">Editar</button>
+            <button class="btn-eliminar" (click)="eliminar(puesto.id!)">Eliminar</button>
+        </tr>
+        }@empty {
+        <tr>
+            <td colspan="6" class="no-data">No hay usuarios registrados</td>
+        </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,13 +1,12 @@
-<div class="usuarios-container">
+
   <h2 class="title">Gestión de Usuarios</h2>
-
-
-  <div class="usuarios">
-    @if (mostrarPanel()) {
-    <div class="actionUser" >
+<div class="usuarios-container">
+  @if (mostrarPanel()) {
+   
+    <div class="action-user" >
       @switch (modo()) {
         @case ('crear') {
-          <app-usuario-create-component (cancelar)="volverLista()"
+          <app-usuario-create-component (cancelar)="noCambios()"
           (guardado)="volverLista()"></app-usuario-create-component>
           }
           @case ('editar') {
@@ -21,7 +20,7 @@
     }
 
 
-    <div class="listUser" >
+    <div class="listUser" [class.active]="mostrarPanel()">
 
       <button class="btn-primary" (click)="nuevoUsuario()">NUEVO USUARIO</button>
 
@@ -29,5 +28,5 @@
 
     </div>
     
-    </div>
+   
   </div>

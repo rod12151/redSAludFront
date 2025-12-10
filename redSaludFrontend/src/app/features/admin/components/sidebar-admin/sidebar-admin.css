@@ -143,7 +143,7 @@
 @media (max-width: 768px) {
     .sidebar {
         position: fixed;
-        top: 60px;
+        top: 45px;
         left: 0;
         width: 250px;
         transform: translateX(0);

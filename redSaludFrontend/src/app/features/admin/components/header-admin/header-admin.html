@@ -9,12 +9,19 @@
 
   <div class="header-right">
    
-    <div class="menu-container" (click)=logout()>
-        <P>SALIR</P>
-      <span class="menu-text">SALIR</span>
+    
+    <div  class="menu-container">
+      <a href="">
+        <span> <fa-icon [icon]="userIcon" ></fa-icon></span>
+        <span class="menu-text">{{user}}</span>
+        
+        </a>
     </div>
-    <div>
-      <a href="">{{user}}</a>
+    <div class="menu-container" >
+      <a href="">
+        <span> <fa-icon [icon]="closeIcon" ></fa-icon></span>
+      <span class="menu-text">salir</span>
+      </a>  
     </div>
 
 
