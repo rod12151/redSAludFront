@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataServices {
+  
   private apiUrl = 'http://localhost:8080/api/registros/upload'; // Ajusta tu URL del backend
   constructor(private http: HttpClient) {}
 

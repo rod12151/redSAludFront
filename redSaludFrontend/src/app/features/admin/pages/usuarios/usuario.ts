@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { UsuarioListComponent } from "./usuario-list-component/usuario-list-component";
 import { UsuarioCreateComponent } from "./usuario-create-component/usuario-create-component";
 import { UsuarioEditComponent } from "./usuario-edit-component/usuario-edit-component";
+import { PuestoService } from "../../services/puesto-service";
 @Component({
   selector: 'app-usuario-component',
   imports: [CommonModule, UsuarioListComponent, UsuarioCreateComponent, UsuarioEditComponent],
@@ -12,38 +13,34 @@ import { UsuarioEditComponent } from "./usuario-edit-component/usuario-edit-comp
   styleUrl: './usuario.css'
 })
 export class UsuarioComponent {
-  modo = signal<'crear' | 'editar'|boolean>(true);
+  mostrarPanel = signal<boolean>(false)
   usuarioSeleccionado = signal<UsuarioResponse | null>(null);
-  mostrarPanel = computed(()=>this.modo()!==null)
-  
-
-  constructor(public usuarioService: UsuarioService) {
+  modo = signal<'crear' | 'editar'|null>(null);
+  constructor(public usuarioService: UsuarioService,public puestoService:PuestoService) {
     this.usuarioService.getAll();
+    this.puestoService.getAll()
   }
-
   nuevoUsuario() {
     this.modo.set('crear');
-    console.log(this.modo())
+    this.mostrarPanel.set(true)
   }
 
   editarUsuario(usuario: UsuarioResponse) {
     this.usuarioSeleccionado.set(usuario);
     this.modo.set('editar');
-    console.log(this.modo())
+    this.mostrarPanel.set(true)
   }
 
   volverLista() {
     this.usuarioSeleccionado.set(null);
-    this.modo.set(false)
+    this.modo.set(null)
     this.usuarioService.getAll();
-    console.log(this.modo())
+    this.mostrarPanel.set(false)    
 
   }
-  isTrue(){
-    if(this.mostrarPanel()){
-      return true
-    }
-    return false
+  noCambios(){
+    this.modo.set(null)
+    this.mostrarPanel.set(false)
   }
 
 }

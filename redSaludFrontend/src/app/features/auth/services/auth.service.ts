@@ -14,6 +14,7 @@ export class AuthService {
   private readonly http = inject(HttpClient)
   private readonly route = inject(Router)
   private authUrl: String = 'http://localhost:8080/api/auth'
+  //private authUrl: String = 'http://backend:8080/api/auth'
 
   //signals para estados reactivos
   private readonly tokenSignal = signal<string | null>(null);

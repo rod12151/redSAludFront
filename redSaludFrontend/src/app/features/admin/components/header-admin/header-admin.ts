@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCompass } from '@fortawesome/free-solid-svg-icons';
+import { faCompass,faUserTie,faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../../../features/auth/services/auth.service';
 @Component({
   selector: 'app-header-admin',
@@ -12,6 +12,8 @@ import { AuthService } from '../../../../features/auth/services/auth.service';
 export class HeaderAdmin implements OnInit {
   private authService = inject(AuthService)
   menuIcon = faCompass;
+  userIcon=faUserTie
+  closeIcon=faCircleXmark
   toggleSidebar = output<void>();
   isSidebarCollapsed = input<boolean>(false);
   user: string = ''

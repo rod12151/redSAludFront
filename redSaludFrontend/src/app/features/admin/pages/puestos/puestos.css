@@ -1,0 +1,64 @@
+.puestos-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.title {
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+.btn-primary {
+    background: #42A5F5;
+    background: linear-gradient(90deg, rgba(66, 165, 245, 1) 0%, rgba(46, 196, 182, 1) 100%);
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+.action-user {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    border-radius: 10px;
+    top: 60px;
+    animation: slideIn 0.5s ease;
+
+}
+
+.listPuesto {
+    position: absolute;
+
+    box-shadow: -4px 0 10px rgb(172, 167, 167);
+    padding: 1rem;    
+    border-radius: 12px 0 0 12px;
+    background: #fff;
+    top: 150px;
+    height: auto;
+}
+
+.listPuesto.active {
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

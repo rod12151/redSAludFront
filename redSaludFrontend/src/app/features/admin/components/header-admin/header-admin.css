@@ -49,6 +49,7 @@
     .header-right {
       display: flex;
       align-items: center;
+      margin-right: 15px;
       gap: 20px;
     }
     p{
@@ -69,7 +70,7 @@
   top: 120%; /* arriba del icono */
   left: 50%;
   transform: translateX(-50%);
-  background: #333;
+  background: #000000;
   color: #fff;
   font-size: 0.8rem;
   padding: 6px 10px;
@@ -93,6 +94,11 @@
 .menu-container:hover .menu-text {
   visibility: visible;
   opacity: 1;
+}
+
+fa-icon{
+  color: black;
+  font-size: 30px;
 }
 
 
