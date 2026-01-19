@@ -9,12 +9,12 @@ import { filtroBusquedaIndicadores, IndicadoresResponse } from '../../shared/mod
   providedIn: 'root'
 })
 export class indicadoresService {
-   private apiUrl = 'http://localhost:8080/api';
+   private apiUrl = 'https://api.sumaqwayra.com/api';
    constructor(private http: HttpClient) {}
 
 
   getIndicadores(): Observable<IndicadoresResponse> {
-    return this.http.get<IndicadoresResponse>("http://localhost:8080/api/registros/grafico?red=HUAMANGA&anio=2023&mes=5.0&microRed=VINCHOS&ipress=ARIZONA");
+    return this.http.get<IndicadoresResponse>("https://api.sumaqwayra.com/api/registros/grafico?red=HUAMANGA&anio=2023&mes=5.0&microRed=VINCHOS&ipress=ARIZONA");
   }
 
   getData(filtro:filtroBusquedaIndicadores){
@@ -22,7 +22,7 @@ export class indicadoresService {
   }
 
   downloadExcel(filtro:filtroBusquedaIndicadores) {
-  this.http.get(`http://localhost:8080/api/reportes/excel?red=${filtro.red}&anio=${filtro.anio}&mes=${filtro.mes}&microRed=${filtro.microred}&ipress=${filtro.ipress}`, {
+  this.http.get(`https://api.sumaqwayra.com/api/reportes/excel?red=${filtro.red}&anio=${filtro.anio}&mes=${filtro.mes}&microRed=${filtro.microred}&ipress=${filtro.ipress}`, {
     responseType: 'blob'
   }).subscribe((res: Blob) => {
     const url = window.URL.createObjectURL(res);

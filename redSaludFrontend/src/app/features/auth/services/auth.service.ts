@@ -13,7 +13,7 @@ export class AuthService {
   private readonly plataformId = inject(PLATFORM_ID)
   private readonly http = inject(HttpClient)
   private readonly route = inject(Router)
-  private authUrl: String = 'http://api.sumaqwayra.com/api/auth'
+  private authUrl: String = 'https://api.sumaqwayra.com/api/auth'
   //private authUrl: String = 'http://backend:8080/api/auth'
 
   //signals para estados reactivos
