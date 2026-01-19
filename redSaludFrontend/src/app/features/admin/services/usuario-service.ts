@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:8080/api/usuario';
+  private apiUrl = 'https://api.sumaqwayra.com/api/usuario';
   //private apiUrl = 'http://backend:8080/api/usuario';
   private usuarios = signal<UsuarioResponse[]>([]);
 

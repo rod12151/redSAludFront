@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PuestoService {
   
-  private apiUrl = 'http://localhost:8080/api/puesto';
+  private apiUrl = 'https://api.sumaqwayra.com/api/puesto';
   //private apiUrl = 'http://backend:8080/api/puesto';
   private puestos = signal<Puesto[]>([]);
 
